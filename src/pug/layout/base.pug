@@ -9,10 +9,13 @@ html(lang="ru")
         - var activePage
         title= pageTitle
         link(href="static/css/main.css", rel="stylesheet") 
-        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
+        link(rel="stylesheet" type="text/css" href="static/css/slick.css")
+        link(rel="stylesheet" type="text/css" href="static/css/slick-theme.css")
     body
-        //- include ../modules/header/module
+        include ../modules/header/module
         block content
-        //- include ../modules/footer/module
+        include ../modules/footer/module
         block scripts
+        script(src="static/js/jquery.js")
+        script(src="static/js/slick.js")
         script(src="static/js/main.js")

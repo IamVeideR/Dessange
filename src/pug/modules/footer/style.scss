@@ -1,0 +1,42 @@
+.footer {
+    background-color: black;
+    
+    &__container {
+        max-width: 350px;
+        height: 235px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 12px;
+        line-height: 15px;
+        color: white;
+        font-family: 'Raleway';
+    }
+    &__logo {
+        width: 140px;
+        height: 28px;
+        background: url(./../img/logo-white.png) center no-repeat;
+        background-size: contain;
+        margin-bottom: 20px;
+    }
+    &__instagram {
+        margin-top: 20px;
+        display: flex;
+
+        svg {
+            width: 14px;
+            height: auto;
+            fill: white;
+            margin-right: 5px;
+        }
+    }
+}
+@media (max-width: $tablet) {
+    .footer { 
+        &__container {
+            height: 220px;
+        }
+    }
+}

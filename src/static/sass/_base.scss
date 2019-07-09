@@ -1,45 +1,70 @@
 body {
+    color: $gray;
+    font-family: 'HelveticaNeue';
+    font-size: 14px;   
 }
 
 body * {
 }
 
 a {
+    color: inherit;
 }
 
 p {
+    font-family: "Myriad";
 }
 
 h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: $black;
+    text-transform: uppercase;
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    text-align: center;
 }
 
 .base-button {
-}
+    width: 224px;
+    height: 39px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 1px solid $dark-gray;
+    line-height: 39px;
 
-.base-button:hover {
-}
+    &.white {
+        color: $dark-gray;
 
-.container {
-    // margin: 0 auto;
-    // max-width: 1160px;
-    // width: 100%;
-    // box-sizing: border-box;
-}
+        &:hover {
+            background-color: $dark-gray;
+            color: white;
+        }
+    }
+    &.black {
+        color: white;
+        background-color: $dark-gray;
 
-.active {
-}
-
-
-@media (max-width: $desktop) {
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
+        &:hover {
+            background-color: white;
+            color: $dark-gray;
+        }
     }
 }
 
-@media (max-width: $mobileL) {
+
+.container {
+    margin: 0 auto;
+    max-width: 1050px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: $laptop) {
     .container {
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
     }
 }
