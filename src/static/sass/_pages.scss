@@ -1,10 +1,93 @@
 .slider {
     margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &__container {
+        padding-top: 30px;
+        background: url(./../img/slider-background.png) center 75% no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__block {
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+
+        &--inside {
+        width: 100%;
+        height: 100%;
+        }
+    }
+    &__slides {
+        width: 100%;
+        height: 100%;
+    }
+    &__image {
+        display: none;
+        width: 100%;
+        padding-bottom: 144%;  
+        background-size: cover!important;
+    }
+    &__effect {
+        position: absolute;
+        width: 180%;
+        height: 180%;
+        top: -20%;
+        left: -30%;
+        background: url(./../img/slider-effect.png) center no-repeat;
+        background-size: contain;
+    }
+    &__sign-up {
+        display: inline-block;
+        margin: 35px auto;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $black;
+        text-decoration: underline;
+        z-index: 10;
+
+        &:hover {
+            color: $gray;
+        }
+    }
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 150px;
+        z-index: 10;
+        font-family: "Myriad";
+        margin: 0 auto;
+        color: $dark-gray;
+    }
+    &__scale {
+        width: 90px;
+        position: relative;
+        height: 1px;
+        background-color: $light-gray;
+
+        &--before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            background-color: $dark-gray;
+            transition-duration: 0.4s;
+        }
+    }
 }
 
 .about {
+    padding: 80px 0;
     &__container {
-        padding: 50px 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -51,21 +134,97 @@
         }
     }
 }
+
 .products {
-    background-color:greenyellow;
-    .product {
-        &__image {
-            width: 24%;
+    color: $light-gray;
+    padding: 60px 0 50px;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+    &__text {
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 65px;
+    }
+    &__block {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__slide {
+        width: 100%;
+        display: none;
+
+        .product {
+            width: 22%;
+            &__image {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 116%; 
+                background-color: $white;
+            }
+            &__picture {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            &__title {
+                padding-top: 20px;
+            }
+            &__feature {
+                line-height: 24px;
+            }
         }
     }
-    &__pages {
-        width: 300px;
+    &__navigation {
+        margin: 55px auto 35px;
+        width: 150px;
+        font-size: 16px;
+        color: $black;
+        font-family: "Raleway";
+        font-weight: bold;
+        
+        .slick-active {
+            font-size: 24px;
+        }
+    }
+    &__nav {
+        text-align: center;
+        height: 30px;
+        cursor: pointer;        
+        
+        &--number {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                color: $gray;
+            }
+        }
+    }
+    &__more {
+        display: inline-block;
+        margin: 0 auto;
+        font-size: 14px;
+        text-decoration: underline;
+
+        &:hover{
+            color: $gray;
+        }
     }
 }
 
 
 .services {
-    background-color: #f5f5f5;
+    background-color: $white;
     padding: 55px 0 50px;
 
     &__container {
@@ -104,6 +263,120 @@
         &__text {
             margin-top: 20px;
             color: $light-gray;
+        }
+    }
+}
+
+.instagram {
+    color: $light-gray;
+
+    &__container {
+        padding-top: 60px;
+        padding-bottom: 50px;
+        max-width: 1260px; 
+        display: flex;
+        flex-direction: column;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 460px;
+        margin: 30px auto 120px;
+    }
+    &__title {
+        padding-bottom: 70px;
+    }
+    &__block {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__slide {
+        width: 100%;
+        display: none;
+
+        .insta {
+            width: 16%;
+            &__image {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%; 
+                overflow: hidden;
+                background-color: $white;
+            }
+            &__picture {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover!important;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                    &::before {
+                        position: absolute;
+                        content:'';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,0.7);
+                    }
+                    &::after {
+                        position: absolute;
+                        content:'';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: url(./../img/instagram.png) center no-repeat;
+                    }
+                }
+            }
+        }
+    }
+    &__navigation {
+        margin: 55px auto 30px;
+        width: 150px;
+        font-size: 16px;
+        color: $black;
+        font-family: "Raleway";
+        font-weight: bold;
+        
+        .slick-active {
+            font-size: 24px;
+        }
+    }
+    &__nav {
+        text-align: center;
+        height: 30px;
+        cursor: pointer;        
+        
+        &--number {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                color: $gray;
+            }
+        }
+    }
+    &__more {
+        display: inline-block;
+        margin: 0 auto 20px;
+        font-size: 14px;
+        text-decoration: underline;
+
+        &:hover{
+            color: $gray;
         }
     }
 }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/slick.css">
     <link rel="stylesheet" type="text/css" href="static/css/slick-theme.css">
   </head>
-  <body>
+  <body class="main">
     <header class="header">
       <div class="header__container container">
         <div class="header__block">
@@ -30,7 +30,28 @@
         </div>
       </div>
     </header>
-    <section class="slider"></section>
+    <section class="slider">
+      <div class="slider__container container">
+        <div class="slider__block">
+          <div class="slider__block--inside">
+            <div class="slider__slides">
+              <div class="slider__image" style="background: url(static/img/slide-1.jpg) center 10% no-repeat;"></div>
+              <div class="slider__image" style="background: url(static/img/slide-1.jpg) center 30% no-repeat;"></div>
+              <div class="slider__image" style="background: url(static/img/slide-1.jpg) center 50% no-repeat;"></div>
+              <div class="slider__image" style="background: url(static/img/slide-1.jpg) center 70% no-repeat;"></div>
+            </div>
+          </div>
+          <div class="slider__effect"></div>
+        </div>
+      </div><a class="slider__sign-up">Записаться</a>
+      <div class="slider__navigation">
+        <div class="slider__current">01</div>
+        <div class="slider__scale"> 
+          <div class="slider__scale--before"></div>
+        </div>
+        <div class="slider__all">00</div>
+      </div>
+    </section>
     <section class="about">
       <div class="about__container container">
         <div class="about__title">О Нас</div>
@@ -47,73 +68,112 @@
         <h1 class="products__title">наша продукция</h1>
         <p class="products__text">We help people find the perfect product at the right price.</p>
         <div class="products__list">
-          <div class="products__slider">
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
+          <div class="products__slide">
+            <div class="products__block">
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-1.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Ruffled dress</p>
+                <p class="product__feature">Pink</p>
               </div>
-              <p class="product__title">Ruffled dress1 </p>
-              <p class="product__feature">Pink</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-2.png) 60% 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Oversized Sweatshirt In</p>
+                <p class="product__feature">Pink</p>
               </div>
-              <p class="product__title">Oversized Sweatshirt In  2</p>
-              <p class="product__feature">Pink</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Slim-fit medium wash</p>
+                <p class="product__feature">Tim jeans</p>
               </div>
-              <p class="product__title">Slim-fit medium wash 3</p>
-              <p class="product__feature">Tim jeans</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-4.png) center 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Sleeveless T-Shirt With</p>
+                <p class="product__feature">Dropped Armhole</p>
               </div>
-              <p class="product__title">Sleeveless T-Shirt With 4</p>
-              <p class="product__feature">Dropped Armhole</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
-              </div>
-              <p class="product__title">Ruffled dress 5</p>
-              <p class="product__feature">Pink</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
-              </div>
-              <p class="product__title">Oversized Sweatshirt In  6</p>
-              <p class="product__feature">Pink</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
-              </div>
-              <p class="product__title">Slim-fit medium wash 7</p>
-              <p class="product__feature">Tim jeans</p>
-            </div>
-            <div class="product">
-              <div class="product__image">
-                <div class="product__picture"></div>
-              </div>
-              <p class="product__title">Sleeveless T-Shirt With 8</p>
-              <p class="product__feature">Dropped Armhole</p>
             </div>
           </div>
-          <div class="products__pages">
-            <p class="product__current">A</p>
-            <p class="product__current">B</p>
-            <p class="product__current">C</p>
-            <p class="product__current">D</p>
-            <p class="product__current">E</p>
-            <p class="product__current">F</p>
-            <p class="product__current">G</p>
-            <p class="product__current">H</p>
+          <div class="products__slide">
+            <div class="products__block">
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-1.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Ruffled dress 5</p>
+                <p class="product__feature">Pink</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-2.png) 60% 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Oversized Sweatshirt In  6</p>
+                <p class="product__feature">Pink</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Slim-fit medium wash 7</p>
+                <p class="product__feature">Tim jeans</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-4.png) center 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Sleeveless T-Shirt With 8</p>
+                <p class="product__feature">Dropped Armhole</p>
+              </div>
+            </div>
+          </div>
+          <div class="products__slide">
+            <div class="products__block">
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-1.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Sleeveless T-Shirt With 9</p>
+                <p class="product__feature">Dropped Armhole</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-2.png) 60% 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Ruffled dress 10</p>
+                <p class="product__feature">Pink</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
+                </div>
+                <p class="product__title">Oversized Sweatshirt In  11</p>
+                <p class="product__feature">Pink</p>
+              </div>
+              <div class="product">
+                <div class="product__image">
+                  <div class="product__picture" style="background: url(static/img/product-4.png) center 65% no-repeat;"></div>
+                </div>
+                <p class="product__title">Slim-fit medium wash 12</p>
+                <p class="product__feature">Tim jeans</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products__navigation">
+          <div class="products__nav">
+            <div class="products__nav--number">01</div>
+          </div>
+          <div class="products__nav">
+            <div class="products__nav--number">02</div>
+          </div>
+          <div class="products__nav">
+            <div class="products__nav--number">03</div>
           </div>
         </div><a class="products__more">Перейти в каталог </a>
       </div>
@@ -144,7 +204,73 @@
         </ul>
       </div>
     </section>
-    <section class="instagram"></section>
+    <section class="instagram">
+      <div class="instagram__container container">
+        <div class="instagram__buttons"><a class="instagram__buttom base-button white">Все Услуги</a><a class="instagram__buttom base-button black">Записаться</a></div>
+        <h1 class="instagram__title">Instagram</h1>
+        <div class="instagram__list">
+          <div class="instagram__slide">
+            <div class="instagram__block">
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-1.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-2.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-3.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-4.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-5.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-6.jpg) center no-repeat;"></div></a></div>
+            </div>
+          </div>
+          <div class="instagram__slide">
+            <div class="instagram__block">
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-1.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-2.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-3.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-4.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-5.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-6.jpg) center no-repeat;"></div></a></div>
+            </div>
+          </div>
+          <div class="instagram__slide">
+            <div class="instagram__block">
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-1.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-2.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-3.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-4.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-5.jpg) center no-repeat;"></div></a></div>
+              <div class="insta"><a class="insta__image">
+                  <div class="insta__picture" style="background: url(static/img/instagram-6.jpg) center no-repeat;"></div></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="instagram__navigation">
+          <div class="instagram__nav">
+            <div class="instagram__nav--number">01</div>
+          </div>
+          <div class="instagram__nav">
+            <div class="instagram__nav--number">02</div>
+          </div>
+          <div class="instagram__nav">
+            <div class="instagram__nav--number">03</div>
+          </div>
+        </div><a class="instagram__more">Перейти в инстаграм</a>
+      </div>
+    </section>
     <footer class="footer">
       <div class="footer__container container"><a class="footer__logo"></a>
         <div class="footer__address">г. Астана, ул. Достык, 9, ТРЦ “Керуен”, 1 этаж, бутик 22</div>

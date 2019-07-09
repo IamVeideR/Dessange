@@ -27,12 +27,14 @@ h1 {
 
 .base-button {
     width: 224px;
+    display: block;
     height: 39px;
     text-align: center;
     font-size: 13px;
     letter-spacing: 1px;
     border: 1px solid $dark-gray;
     line-height: 39px;
+    text-transform: uppercase;
 
     &.white {
         color: $dark-gray;

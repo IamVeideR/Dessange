@@ -5,6 +5,21 @@ block variables
     - activePage = 'main'
 block content
     section.slider
+        .slider__container.container
+            .slider__block
+                .slider__block--inside
+                    .slider__slides
+                        .slider__image(style='background: url(static/img/slide-1.jpg) center 10% no-repeat;')
+                        .slider__image(style='background: url(static/img/slide-1.jpg) center 30% no-repeat;')
+                        .slider__image(style='background: url(static/img/slide-1.jpg) center 50% no-repeat;')
+                        .slider__image(style='background: url(static/img/slide-1.jpg) center 70% no-repeat;')
+                .slider__effect
+        a.slider__sign-up Записаться
+        .slider__navigation
+            .slider__current 01
+            .slider__scale 
+                .slider__scale--before
+            .slider__all 00
     section.about
         .about__container.container
             .about__title О Нас
@@ -20,56 +35,79 @@ block content
             h1.products__title наша продукция
             p.products__text We help people find the perfect product at the right price.
             .products__list
-                .products__slider
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Ruffled dress1 
-                        p.product__feature Pink
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Oversized Sweatshirt In  2
-                        p.product__feature Pink
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Slim-fit medium wash 3
-                        p.product__feature Tim jeans
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Sleeveless T-Shirt With 4
-                        p.product__feature Dropped Armhole
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Ruffled dress 5
-                        p.product__feature Pink
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Oversized Sweatshirt In  6
-                        p.product__feature Pink
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Slim-fit medium wash 7
-                        p.product__feature Tim jeans
-                    .product
-                        .product__image
-                            .product__picture
-                        p.product__title Sleeveless T-Shirt With 8
-                        p.product__feature Dropped Armhole
-                .products__pages
-                    p.product__current A
-                    p.product__current B
-                    p.product__current C
-                    p.product__current D
-                    p.product__current E
-                    p.product__current F
-                    p.product__current G
-                    p.product__current H
+                .products__slide
+                    .products__block
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                            p.product__title Ruffled dress
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                            p.product__title Oversized Sweatshirt In
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                            p.product__title Slim-fit medium wash
+                            p.product__feature Tim jeans
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                            p.product__title Sleeveless T-Shirt With
+                            p.product__feature Dropped Armhole
+                .products__slide
+                    .products__block
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                            p.product__title Ruffled dress 5
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                            p.product__title Oversized Sweatshirt In  6
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                            p.product__title Slim-fit medium wash 7
+                            p.product__feature Tim jeans
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                            p.product__title Sleeveless T-Shirt With 8
+                            p.product__feature Dropped Armhole
+                .products__slide
+                    .products__block
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                            p.product__title Sleeveless T-Shirt With 9
+                            p.product__feature Dropped Armhole
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                            p.product__title Ruffled dress 10
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                            p.product__title Oversized Sweatshirt In  11
+                            p.product__feature Pink
+                        .product
+                            .product__image
+                                .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                            p.product__title Slim-fit medium wash 12
+                            p.product__feature Tim jeans
+            .products__navigation
+                .products__nav
+                    .products__nav--number 01
+                .products__nav
+                    .products__nav--number 02
+                .products__nav
+                    .products__nav--number 03
             a.products__more Перейти в каталог 
     section.services
         .services__container.container
@@ -95,3 +133,77 @@ block content
                     a(href="#").service__title Депиляция
                     p.service__text We help people find the perfect product at the right price.
     section.instagram
+        .instagram__container.container
+            .instagram__buttons
+                a.instagram__buttom.base-button.white Все Услуги
+                a.instagram__buttom.base-button.black Записаться
+            h1.instagram__title Instagram
+            .instagram__list
+                .instagram__slide
+                    .instagram__block
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-1.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                .instagram__slide
+                    .instagram__block
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-1.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                .instagram__slide
+                    .instagram__block
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-1.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                        .insta
+                            a.insta__image
+                                .insta__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+            .instagram__navigation
+                .instagram__nav
+                    .instagram__nav--number 01
+                .instagram__nav
+                    .instagram__nav--number 02
+                .instagram__nav
+                    .instagram__nav--number 03
+            a.instagram__more Перейти в инстаграм
