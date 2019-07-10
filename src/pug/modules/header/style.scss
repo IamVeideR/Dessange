@@ -1,5 +1,5 @@
 .header {
-    z-index: 10;
+    z-index: 15;
     background-color: #ffffff;
     position: fixed;
     top: 0;
@@ -10,6 +10,7 @@
         align-items: center;
         justify-content: space-between;
         height: 110px;
+        transition-duration: 0.3s;
 
         ul {
             display: flex;
@@ -22,6 +23,7 @@
 
             li {
                 a {
+                    transition-duration: 0.2s;
                     &:hover {
                         transform: scale(1.02);
                         color: $black;
@@ -52,5 +54,94 @@
         height: 36px;
         background: url(./../img/logo-black.png) center no-repeat;
         background-size: contain;
+
+        &--pre {
+            display: none;
+        }
+    }
+    &__dropdown {
+        display: none;
+    }
+    &__mobile {
+        display: none;
+    }
+}
+
+@media (max-width: $tablet) {
+    .header {
+        &__block {
+            height: 70px;
+    
+            ul {
+                display: none;
+    
+                a {
+                    padding: 5px;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+        &__logo {
+            width: 120px;
+            height: 24px;
+
+            &--pre {
+                display: block;
+                width: 1px;
+            }
+        }
+        &__dropdown {
+            display: block;
+            width: 16px;
+            height: 16px;
+            padding: 5px;
+            background: url(./../img/dropdown.png) center no-repeat;
+            cursor: pointer;
+        }
+        &__mobile {
+            z-index: 15;
+            background-color: #ffffff;
+            position: fixed;
+            top: 70px;
+            width: 100%;
+            height: calc(100vh - 70px);
+
+            .mobile {
+                &__list {
+                    width: 100%;
+                }
+                &__item {
+                    width: 100%;
+
+                    &:nth-last-child(1) {
+                        .mobile__link {
+                            text-transform: none;
+                        }
+                    }  
+                }
+                &__link {
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    line-height: 72px;
+                    justify-content: center;
+                    width: 100%;
+                    margin-top: 20px;
+                    display: flex;
+                                      
+                    svg {
+                        width: 14px;
+                        height: auto;
+                        fill: $gray;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
     }
 }

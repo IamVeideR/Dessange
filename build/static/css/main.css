@@ -92,7 +92,10 @@ h1 {
   letter-spacing: 1px;
   border: 1px solid #252525;
   line-height: 39px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s; }
   .base-button.white {
     color: #252525; }
     .base-button.white:hover {
@@ -116,6 +119,13 @@ h1 {
   .container {
     padding-right: 15px;
     padding-left: 15px; } }
+
+@media (max-width: 765px) {
+  h1 {
+    font-size: 18px;
+    letter-spacing: 1px; }
+  .base-button {
+    font-size: 12px; } }
 
 @font-face {
   font-family: 'JosefinSans';
@@ -167,7 +177,7 @@ h1 {
   font-style: normal; }
 
 .header {
-  z-index: 10;
+  z-index: 15;
   background-color: #ffffff;
   position: fixed;
   top: 0;
@@ -185,7 +195,10 @@ h1 {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    height: 110px; }
+    height: 110px;
+    -webkit-transition-duration: 0.3s;
+         -o-transition-duration: 0.3s;
+            transition-duration: 0.3s; }
     .header__block ul {
       display: -webkit-box;
       display: -webkit-flex;
@@ -203,6 +216,9 @@ h1 {
       letter-spacing: 1px;
       width: 34%; }
       .header__block ul li a {
+        -webkit-transition-duration: 0.2s;
+             -o-transition-duration: 0.2s;
+                transition-duration: 0.2s;
         padding: 5px;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
@@ -237,6 +253,82 @@ h1 {
     background: url(./../img/logo-black.png) center no-repeat;
     -webkit-background-size: contain;
             background-size: contain; }
+    .header__logo--pre {
+      display: none; }
+  .header__dropdown {
+    display: none; }
+  .header__mobile {
+    display: none; }
+
+@media (max-width: 765px) {
+  .header__block {
+    height: 70px; }
+    .header__block ul {
+      display: none; }
+      .header__block ul a {
+        padding: 5px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
+  .header__logo {
+    width: 120px;
+    height: 24px; }
+    .header__logo--pre {
+      display: block;
+      width: 1px; }
+  .header__dropdown {
+    display: block;
+    width: 16px;
+    height: 16px;
+    padding: 5px;
+    background: url(./../img/dropdown.png) center no-repeat;
+    cursor: pointer; }
+  .header__mobile {
+    z-index: 15;
+    background-color: #ffffff;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    height: calc(100vh - 70px); }
+    .header__mobile .mobile__list {
+      width: 100%; }
+    .header__mobile .mobile__item {
+      width: 100%; }
+      .header__mobile .mobile__item:nth-last-child(1) .mobile__link {
+        text-transform: none; }
+    .header__mobile .mobile__link {
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 72px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      width: 100%;
+      margin-top: 20px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      .header__mobile .mobile__link svg {
+        width: 14px;
+        height: auto;
+        fill: #616161;
+        margin-right: 5px; } }
 
 .footer {
   background-color: black; }
@@ -284,7 +376,7 @@ h1 {
       fill: white;
       margin-right: 5px; }
 
-@media (max-width: 768px) {
+@media (max-width: 765px) {
   .footer__container {
     height: 220px; } }
 
@@ -363,7 +455,10 @@ h1 {
     text-transform: uppercase;
     color: #101010;
     text-decoration: underline;
-    z-index: 10; }
+    z-index: 10;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
     .slider__sign-up:hover {
       color: #616161; }
   .slider__navigation {
@@ -380,6 +475,7 @@ h1 {
         -ms-flex-align: center;
             align-items: center;
     width: 150px;
+    height: 32px;
     z-index: 10;
     font-family: "Myriad";
     margin: 0 auto;
@@ -449,7 +545,10 @@ h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #101010;
-    text-decoration: underline; }
+    text-decoration: underline;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
     .about__more:hover {
       color: #616161; }
 
@@ -508,6 +607,7 @@ h1 {
   .products__navigation {
     margin: 55px auto 35px;
     width: 150px;
+    height: 32px;
     font-size: 16px;
     color: #101010;
     font-family: "Raleway";
@@ -531,14 +631,20 @@ h1 {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center; }
+              align-items: center;
+      -webkit-transition-duration: 0.2s;
+           -o-transition-duration: 0.2s;
+              transition-duration: 0.2s; }
       .products__nav--number:hover {
         color: #616161; }
   .products__more {
     display: inline-block;
     margin: 0 auto;
     font-size: 14px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
     .products__more:hover {
       color: #616161; }
 
@@ -588,7 +694,10 @@ h1 {
     font-size: 18px;
     color: #101010;
     font-family: "Raleway";
-    font-weight: bold; }
+    font-weight: bold;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
     .services .service__title:hover {
       color: #616161; }
   .services .service__text {
@@ -659,7 +768,10 @@ h1 {
         height: 100%;
         -webkit-background-size: cover !important;
                 background-size: cover !important;
-        cursor: pointer; }
+        cursor: pointer;
+        -webkit-transition-duration: 0.3s;
+             -o-transition-duration: 0.3s;
+                transition-duration: 0.3s; }
         .instagram__slide .insta__picture:hover {
           -webkit-transform: scale(1.1);
               -ms-transform: scale(1.1);
@@ -684,6 +796,7 @@ h1 {
     margin: 55px auto 30px;
     width: 150px;
     font-size: 16px;
+    height: 32px;
     color: #101010;
     font-family: "Raleway";
     font-weight: bold; }
@@ -706,13 +819,116 @@ h1 {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center; }
+              align-items: center;
+      -webkit-transition-duration: 0.2s;
+           -o-transition-duration: 0.2s;
+              transition-duration: 0.2s; }
       .instagram__nav--number:hover {
         color: #616161; }
   .instagram__more {
     display: inline-block;
     margin: 0 auto 20px;
     font-size: 14px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
     .instagram__more:hover {
       color: #616161; }
+
+@media (max-width: 765px) {
+  .slider {
+    margin-top: 70px; }
+    .slider__container {
+      padding-top: 70px; }
+    .slider__block {
+      max-width: 200px; }
+    .slider__effect {
+      width: 160%;
+      height: 160%;
+      top: -5%;
+      left: -20%; }
+  .about {
+    padding: 65px 0; }
+    .about__slogan {
+      font-size: 18px;
+      line-height: 30px; }
+    .about__divider {
+      margin: 40px; }
+    .about__text br {
+      display: none; }
+    .about__more {
+      margin-top: 45px; }
+  .products {
+    padding: 30px 0 60px; }
+    .products__text {
+      padding: 10px 25px 50px; }
+    .products__block {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+    .products__slide {
+      width: 100%;
+      display: none; }
+      .products__slide:nth-child(1) {
+        display: block; }
+      .products__slide .product {
+        width: 80%;
+        margin-bottom: 40px; }
+    .products__navigation {
+      display: none; }
+    .products__more {
+      margin: 0 auto;
+      font-size: 14px; }
+  .services {
+    padding: 55px 0 20px; }
+    .services__text {
+      padding: 15px 30px 65px; }
+    .services__list {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+    .services__item {
+      width: 80%;
+      text-align: center;
+      padding-bottom: 65px; }
+  .instagram__container {
+    padding-top: 5px;
+    padding-bottom: 50px; }
+  .instagram__buttons {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    margin: 30px auto 25px; }
+    .instagram__buttons a {
+      margin-bottom: 25px; }
+  .instagram__title {
+    padding-bottom: 60px; }
+  .instagram__block {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+  .instagram__slide {
+    display: none; }
+    .instagram__slide:nth-child(1) {
+      display: block; }
+    .instagram__slide .insta {
+      width: 70%;
+      margin-bottom: 10px; }
+  .instagram__navigation {
+    display: none; }
+  .instagram__more {
+    margin: 40px auto 0px; } }

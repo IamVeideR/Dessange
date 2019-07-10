@@ -1,5 +1,9 @@
 (function (){
 let currentPage = document.getElementsByTagName('body')[0].className;
+let headerDesktop = document.getElementsByClassName('header__block')[0];
+let headerDropdown = document.getElementsByClassName('header__dropdown')[0];
+let headerMobile = document.getElementsByClassName('header__mobile')[0];
+let headerLogo = document.getElementsByClassName('header__logo')[0];
 
 class ClassWatcher {
     constructor(targetNode, classToWatch, classAddedCallback) {
@@ -35,6 +39,18 @@ class ClassWatcher {
     }
 }
 
+headerDropdown.onclick = () => {
+    if(headerMobile.style.display == 'flex') {
+        headerMobile.style.display = 'none'; 
+        headerLogo.style.display = 'block'; 
+        headerDropdown.style.background = 'url(static/img/dropdown.png) center no-repeat';
+    } else {
+        headerMobile.style.display = 'flex';
+        headerLogo.style.display = 'none'; 
+        headerDropdown.style.background = 'url(static/img/cross.png) center no-repeat';
+    }
+}
+
 $(".slider__slides").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -44,7 +60,15 @@ $(".slider__slides").slick({
     speed: 800,
 });
 
-if(screen.width > 768){
+if(window.screen.width > 765){
+    window.onscroll = () => {
+        if(window.pageYOffset > 0) {
+            headerDesktop.style.height = '70px';
+        } else {
+            headerDesktop.style.height = '110px';
+        }
+    }
+    
     $(".products__list").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
