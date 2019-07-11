@@ -60,6 +60,7 @@ $(".slider__slides").slick({
     speed: 800,
 });
 
+
 if(window.screen.width > 765){
     window.onscroll = () => {
         if(window.pageYOffset > 0) {
@@ -100,9 +101,51 @@ if(window.screen.width > 765){
         slidesToScroll: 1,
         asNavFor: '.instagram__list',
     });
+
+    $(".portfolio__content").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 800,
+        fade: true,
+        arrows: false,
+        draggable: false,
+        swipe: false,
+    });
 }
 
-if(currentPage =='main') {
+$(".portfolio__slides--1").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 1200,
+    arrows: false,
+    asNavFor: '.portfolio__navigation--1',
+});
+
+$(".portfolio__navigation--1").slick({
+    centerMode: true,
+    centerPadding: '50px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    asNavFor: '.portfolio__slides--1',
+});
+
+$(".portfolio__slides--2").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 1200,
+    arrows: false,
+    asNavFor: '.portfolio__navigation--2',
+});
+
+$(".portfolio__navigation--2").slick({
+    centerMode: true,
+    centerPadding: '50px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    asNavFor: '.portfolio__slides--2',
+});
+
+if(currentPage =='main-page') {
     const changeScale = () => {
         let current = document.getElementsByClassName('slider__current')[0];
         let all = document.getElementsByClassName('slider__all')[0];
@@ -128,46 +171,42 @@ if(currentPage =='main') {
         }
     };
     changeScale();
-    
-    // const changeScale = () => {
-    //     let slide = document.getElementsByClassName('products__list').getElementsByClassName('slick-slide');
-    //     let nav = document.getElementsByClassName('products__nav');
-    //     let current = document.getElementsByClassName('products__current');
-        
-    //     if(slide.length >= 10) {
-    //         all.innerHTML = image.length;
-    //     } else {
-    //         all.innerHTML = "0"+image.length;  
-    //     }    
-    //     for(let i = 0; i<slide.length; i++) {
-
-    //         function workOnClassAdd() {
-    //             if(i >= 9) {
-    //                 current.innerHTML = i+1;
-    //             } else {
-    //                 current.innerHTML = `0${i+1}`;  
-    //             } 
-    //             scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
-    //         }
-    //         let classWatcher = new ClassWatcher(slide[i], 'slick-active', workOnClassAdd)
-    //     }
-    //     };
-    // changeScale();
 }
 
-// $(".products__slider").slick({
-//     slidesToShow: 4,
-//     slidesToScroll: 2,
-//     asNavFor: '.products__pages'
-// });
-// $('.products__pages').slick({
-//     slidesToShow: 2,
-//     slidesToScroll: 1,
-//     asNavFor: '.products__slider',
-//     arrows: true,
-//     centerMode: true,
-//     focusOnSelect: true
-// });
+if(currentPage =='portfolio-page') {
+    let category = document.getElementsByClassName('portfolio__category-title');
+    let dropdown = document.getElementsByClassName('portfolio__dropdown');
+    let block = document.getElementsByClassName('portfolio__category');
+
+    for (let i = 0; i < category.length; i++) {
+        category[i].onclick = () => {
+            for (let j = 0; j < category.length; j++) {
+                category[j].style.borderBottom = '1px solid white';
+            }
+            category[i].style.borderBottom = '1px solid #616161';
+            $('.portfolio__content').slick('slickGoTo', i);
+        }
+    }
+    for (let i = 0; i < dropdown.length; i++) {
+        dropdown[i].onclick = () => {
+            if(block[i].style.height == 'initial') {
+                category[i].style.borderBottom = 'none';
+                block[i].style.height = '0';
+                block[i].style.marginTop = '0';
+            } else {
+                for (let j = 0; j < dropdown.length; j++) {
+                    category[j].style.borderBottom = 'none';
+                    block[j].style.height = '0';
+                    block[j].style.marginTop = '0';
+                }
+                window.scrollTo(0,178 + i*61);
+                category[i].style.borderBottom = '1px solid #7b7b7b';
+                block[i].style.height = 'initial';
+                block[i].style.marginTop = '25px';
+            }
+        }
+    }
+}
 })();
 
 

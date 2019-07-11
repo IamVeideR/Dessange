@@ -2,7 +2,7 @@ extends ../layout/base
 
 block variables
     - pageTitle = 'Dessange' 
-    - activePage = 'main'
+    - activePage = 'main-page'
 block content
     section.slider
         .slider__container.container
@@ -27,7 +27,7 @@ block content
             .about__slogan perfect product at the right price. 
             .about__divider
             p.about__text We help people find the perfect product at the right price.<br> Our extensive selection and superior customer service coupled with the convenience of online shopping, make it easier than ever before to find exactly what you want for your home at a price you can afford.<br> We help people find the perfect product 
-            a.about__more Подробнее
+            a(href="about.html").about__more Подробнее
     section.products
         .products__container.container
             h1.products__title наша продукция
@@ -204,4 +204,4 @@ block content
                     .instagram__nav--number 02
                 .instagram__nav
                     .instagram__nav--number 03
-            a.instagram__more Перейти в инстаграм
+            a(href="https://www.instagram.com/dessange_astana").instagram__more Перейти в инстаграм
