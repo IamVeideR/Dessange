@@ -23,7 +23,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-ol, ul {
+ul {
 	list-style: none;
 }
 input[type="checkbox"], input[type="radio"] {
@@ -66,5 +66,6 @@ button:focus, div:focus, input, textarea, video {
 
 input, textarea {
     border: none;
-    resize: none;
+	resize: none;
+	border-radius: 0;
 }

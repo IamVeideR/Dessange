@@ -70,7 +70,7 @@ if(window.screen.width > 765){
         }
     }
     
-    $(".products__list").slick({
+    $(".products-main__list").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 1200,
@@ -83,7 +83,7 @@ if(window.screen.width > 765){
         centerPadding: '50px',
         slidesToShow: 1,
         slidesToScroll: 1,
-        asNavFor: '.products__list',
+        asNavFor: '.products-main__list',
     });
 
     $(".instagram__list").slick({
@@ -145,6 +145,13 @@ $(".portfolio__navigation--2").slick({
     asNavFor: '.portfolio__slides--2',
 });
 
+$(".products__pagination").slick({
+    centerMode: true,
+    centerPadding: '50px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+});
+
 if(currentPage =='main-page') {
     const changeScale = () => {
         let current = document.getElementsByClassName('slider__current')[0];
@@ -190,24 +197,120 @@ if(currentPage =='portfolio-page') {
     for (let i = 0; i < dropdown.length; i++) {
         dropdown[i].onclick = () => {
             if(block[i].style.height == 'initial') {
-                category[i].style.borderBottom = 'none';
+                dropdown[i].style.borderBottom = 'none';
+                dropdown[i].classList.remove('portfolio__dropdown--active');
                 block[i].style.height = '0';
                 block[i].style.marginTop = '0';
             } else {
                 for (let j = 0; j < dropdown.length; j++) {
-                    category[j].style.borderBottom = 'none';
+                    dropdown[j].style.borderBottom = 'none';
+                    dropdown[j].classList.remove('portfolio__dropdown--active');
                     block[j].style.height = '0';
                     block[j].style.marginTop = '0';
                 }
-                window.scrollTo(0,178 + i*61);
-                category[i].style.borderBottom = '1px solid #7b7b7b';
+                window.scrollTo(0,177 + i*61);
+                dropdown[i].style.borderBottom = '1px solid #7b7b7b';
+                dropdown[i].classList.add('portfolio__dropdown--active');
                 block[i].style.height = 'initial';
                 block[i].style.marginTop = '25px';
             }
         }
     }
 }
+
+if(currentPage =='products-page') {
+    let dropdown = document.getElementsByClassName('products__type--title');
+    if(window.screen.width < 765){
+        for (let i = 0; i < dropdown.length; i++) {
+            let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
+            let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
+
+            dropdown[i].onclick = () => {
+                if(subvariation[0].style.height == 'initial') {
+                    for (let j = 0; j < subvariation.length; j++) {
+                        subvariation[j].style.height = '0';
+                        subvariation[j].style.display = 'none';
+                        
+                    }
+                } else {
+                    for (let j = 0; j < subvariation.length; j++) {
+                        subvariation[j].style.height = 'initial';
+                        subvariation[j].style.display = 'block';
+                    }
+                }
+                if(event.target == dropdown[0]) {
+                    if(variation[0].style.height == 'initial') {
+                        for (let j = 0; j < variation.length; j++) {
+                            variation[j].style.height = '0';
+                            variation[j].style.display = 'none';
+                            
+                        }
+                    } else {
+                        for (let j = 0; j < variation.length; j++) {
+                            variation[j].style.height = 'initial';
+                            variation[j].style.display = 'list-item';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 })();
+
+
+var w = 10;
+var n = 4;
+var val = [50, 30, 30,40];
+var wt = [5, 3, 3,4];
+
+
+// let total = 0;
+// for (let j=0;j<wt.length; j++) {
+// let k;
+// let max = 0;
+// for (let i=0; i<wt.length; i++) {
+//     if(val[i]>max) {
+//         if(w-wt[i]>=0) {
+//             max=val[i];
+//             k=i;
+//         }
+//     }
+// }
+// total+=max;
+// w-=wt[k];
+// val[k] = 0;
+// }
+// console.log(total);
+var mat = new Array(n + 1);
+
+
+for (var i = 0; i < mat.length; i++) {
+  mat[i] = new Array(w + 1);
+}
+for (var r = 0; r < w + 1; r++) {
+    mat[0][r] = 0;
+}
+for (var  c = 0; c < n + 1; c++) {
+    mat[c][0] = 0;
+}
+
+for (var item = 0; item < n; item++) {
+    for (var capacity = 1; capacity <= w; capacity++) {
+        var maxValWithoutCurr = mat[item][capacity];
+        var maxValWithCurr = 0; 
+        var weightOfCurr = wt[item];
+        if (capacity >= weightOfCurr) {
+            maxValWithCurr = val[item];
+            var remainingCapacity = capacity - weightOfCurr;
+            maxValWithCurr += mat[item][remainingCapacity];
+        }
+        mat[item+1][capacity] = Math.max(maxValWithoutCurr, maxValWithCurr);
+    }
+}
+
+console.log(mat[n][w]);
+console.log(mat);
 
 
 
