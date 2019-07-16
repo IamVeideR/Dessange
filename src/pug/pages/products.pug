@@ -1,0 +1,158 @@
+extends ../layout/base
+
+block variables
+    - pageTitle = 'Dessange' 
+    - activePage = 'products-page'
+block content
+    section.products__container.container
+        .products
+            .products__filter
+                .products__special Акционные Товары
+                .products__special Скидочные Товары
+                ol.products__type 
+                    .products__type--title Тип ухода:
+                    li.products__variation Волосы
+                        .products__subvariation Лечебные
+                        .products__subvariation Ежедневный уход
+                    li.products__variation Лицо
+                        .products__subvariation Лечебные
+                        .products__subvariation Ежедневный уход
+                    li.products__variation Тело
+                .products__type
+                    .products__type--title Тип продукта:
+                    .products__subvariation Бальзам #[span (15)]
+                    .products__subvariation Воск #[span (50)]
+                    .products__subvariation Карандаш #[span (150)]
+                    .products__subvariation Лак для ногтей #[span (150)]
+                    .products__subvariation Лосьон #[span (150)]
+                    .products__subvariation Маска #[span (150)]
+                    .products__subvariation Молочко #[span (150)]
+                    .products__subvariation Мусс #[span (150)]
+                .products__type
+                    .products__type--title Бренд:
+                    .products__subvariation Мissha #[span (150)]
+                    .products__subvariation Elemis #[span (150)]
+                    .products__subvariation Dr. Jart #[span (18)]
+            .products__catalog
+                .products__active
+                    .active__title Активные
+                    .active__block
+                        .active__name Лосьон
+                        .active__close
+                .products__list
+                    .product.product--sale
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                        p.product__title Ruffled dress
+                        p.product__feature Pink
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                        p.product__title Oversized Sweatshirt In
+                        p.product__feature Pink
+                    .product.product--action
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                        p.product__title Slim-fit medium wash
+                        p.product__feature Tim jeans
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                        p.product__title Sleeveless T-Shirt With
+                        p.product__feature Dropped Armhole
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                        p.product__title Ruffled dress
+                        p.product__feature Pink
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                        p.product__title Oversized Sweatshirt In
+                        p.product__feature Pink
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                        p.product__title Slim-fit medium wash
+                        p.product__feature Tim jeans
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                        p.product__title Sleeveless T-Shirt With
+                        p.product__feature Dropped Armhole
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-1.png) center no-repeat;')
+                        p.product__title Ruffled dress
+                        p.product__feature Pink
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-2.png) 60% 65% no-repeat;')
+                        p.product__title Oversized Sweatshirt In
+                        p.product__feature Pink
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                        p.product__title Slim-fit medium wash
+                        p.product__feature Tim jeans
+                    .product
+                        .product__image
+                            .product__picture(style='background: url(static/img/product-4.png) center 65% no-repeat;')
+                        p.product__title Sleeveless T-Shirt With
+                        p.product__feature Dropped Armhole
+                .products__pagination
+                    .products__pag
+                        a.products__pag--number 01
+                    .products__pag
+                        a.products__pag--number 02
+                    .products__pag
+                        a.products__pag--number 03
+    .products__merchandise
+        .merchandise
+            .merchandise__close
+            .merchandise__container.container
+                .merchandise__image-block
+                    .merchandise__slider
+                        .merchandise__image
+                            .merchandise__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                    .merchandise__navigation
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                .merchandise__text-block
+                    .merchandise__title Лосьон для тела
+                    .merchandise__price 5000 тг
+                    .merchandise__brand
+                        .brand__title Бренд:
+                        .brand__text Dessange
+                    .merchandise__description
+                        .description__title Описание:
+                        .description__text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    .merchandise__additional Приобрести продукт вы можете у нас в салонах, или связаться с нами.
+                    .merchandise__button.base-button.black Связаться с нами
+    .products__feedback
+        .feedback
+            .feedback__close
+            .feedback__container.container
+                h1.feedback__title Напишите Нам
+                form.feedback__form
+                    input(type='text' placeholder='Имя' name="feedback-name").feedback__input.feedback__name
+                    input(type='text' placeholder='Номер Телефона' name="feedback-phone").feedback__input.feedback__phone
+                    input(type='text' placeholder='E-mail' name="feedback-mail").feedback__input.feedback__mail
+                    textarea(type='textarea' placeholder='Сообщение' name="feedback-message").feedback__textarea
+                    .feedback__agreement
+                        input(type="checkbox" id='agreement' required)
+                        label(for="agreement") Согласен с правилами обработки информации 
+                    button.feedback__button.base-button.black Отправить
+
+
+

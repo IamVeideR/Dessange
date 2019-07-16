@@ -10,7 +10,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, input, textarea {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,7 +23,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-ol, ul {
+ul {
 	list-style: none;
 }
 input[type="checkbox"], input[type="radio"] {
@@ -66,5 +66,6 @@ button:focus, div:focus, input, textarea, video {
 
 input, textarea {
     border: none;
-    resize: none;
+	resize: none;
+	border-radius: 0;
 }

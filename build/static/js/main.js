@@ -60,6 +60,23 @@ $(".slider__slides").slick({
     speed: 800,
 });
 
+$(".merchandise__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    speed: 800,
+    asNavFor: '.merchandise__navigation',
+});
+
+$(".merchandise__navigation").slick({
+    // centerMode: true,
+    // centerPadding: '50px',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.merchandise__slider',
+});
 
 if(window.screen.width > 765){
     window.onscroll = () => {
@@ -70,20 +87,20 @@ if(window.screen.width > 765){
         }
     }
     
-    $(".products__list").slick({
+    $(".products-main__list").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 1200,
         arrows: false,
-        asNavFor: '.products__navigation',
+        asNavFor: '.products-main__navigation',
     });
 
-    $(".products__navigation").slick({
+    $(".products-main__navigation").slick({
         centerMode: true,
         centerPadding: '50px',
         slidesToShow: 1,
         slidesToScroll: 1,
-        asNavFor: '.products__list',
+        asNavFor: '.products-main__list',
     });
 
     $(".instagram__list").slick({
@@ -111,38 +128,45 @@ if(window.screen.width > 765){
         draggable: false,
         swipe: false,
     });
+    
+    $(".portfolio__slides--1").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.portfolio__navigation--1',
+    });
+
+    $(".portfolio__navigation--1").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.portfolio__slides--1',
+    });
+
+    $(".portfolio__slides--2").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.portfolio__navigation--2',
+    });
+
+    $(".portfolio__navigation--2").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.portfolio__slides--2',
+    });
 }
 
-$(".portfolio__slides--1").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 1200,
-    arrows: false,
-    asNavFor: '.portfolio__navigation--1',
-});
-
-$(".portfolio__navigation--1").slick({
+$(".products__pagination").slick({
     centerMode: true,
     centerPadding: '50px',
     slidesToShow: 1,
     slidesToScroll: 1,
-    asNavFor: '.portfolio__slides--1',
-});
-
-$(".portfolio__slides--2").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 1200,
-    arrows: false,
-    asNavFor: '.portfolio__navigation--2',
-});
-
-$(".portfolio__navigation--2").slick({
-    centerMode: true,
-    centerPadding: '50px',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.portfolio__slides--2',
 });
 
 if(currentPage =='main-page') {
@@ -190,25 +214,107 @@ if(currentPage =='portfolio-page') {
     for (let i = 0; i < dropdown.length; i++) {
         dropdown[i].onclick = () => {
             if(block[i].style.height == 'initial') {
-                category[i].style.borderBottom = 'none';
+                dropdown[i].style.borderBottom = 'none';
+                dropdown[i].classList.remove('portfolio__dropdown--active');
                 block[i].style.height = '0';
                 block[i].style.marginTop = '0';
             } else {
                 for (let j = 0; j < dropdown.length; j++) {
-                    category[j].style.borderBottom = 'none';
+                    dropdown[j].style.borderBottom = 'none';
+                    dropdown[j].classList.remove('portfolio__dropdown--active');
                     block[j].style.height = '0';
                     block[j].style.marginTop = '0';
                 }
-                window.scrollTo(0,178 + i*61);
-                category[i].style.borderBottom = '1px solid #7b7b7b';
+                window.scrollTo({
+                    top: 177 + i*61,
+                    left: 0,
+                    behavior: 'smooth'
+                  });
+                dropdown[i].style.borderBottom = '1px solid #7b7b7b';
+                dropdown[i].classList.add('portfolio__dropdown--active');
                 block[i].style.height = 'initial';
                 block[i].style.marginTop = '25px';
             }
         }
     }
 }
-})();
 
+if(currentPage =='products-page') {
+    let dropdown = document.getElementsByClassName('products__type--title');
+    let merchandise = document.getElementsByClassName('products__merchandise');
+    let merchClose = document.getElementsByClassName('merchandise__close');
+    let merchContainer = document.getElementsByClassName('merchandise__container');
+    let product = document.getElementsByClassName('product');
+    let merchButton = document.getElementsByClassName('merchandise__button'); 
+    let feedback = document.getElementsByClassName('products__feedback')[0];
+    let feedbackClose = document.getElementsByClassName('feedback__close')[0];
+    let feedbackContainer = document.getElementsByClassName('feedback__container')[0];
+    let feedbackButton = document.getElementsByClassName('feedback__button')[0];
+
+    for (let i = 0; i < product.length; i++) {
+        product[i].onclick = () => {
+            merchandise[0].style.height = '100vh';
+        }
+        merchClose[0].onclick = () => {
+            merchandise[0].style.height = '0'; 
+        }
+        merchandise[0].onclick = () => {
+            merchContainer[0].onclick = (e) => {
+                e.stopPropagation();
+            }
+            merchandise[0].style.height = '0';
+        }
+        merchButton[0].onclick = () => {
+            merchandise[0].style.height = '0'; 
+            feedback.style.height = '100vh';
+        }
+        feedback.onclick = () => {
+            feedback.style.height = '0'; 
+        }
+        feedback.onclick = () => {
+            feedback.onclick = (e) => {
+                e.stopPropagation();
+            }
+            feedback.style.height = '0';
+        }
+    }
+    if(window.screen.width < 765){
+        for (let i = 0; i < dropdown.length; i++) {
+            let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
+            let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
+
+            dropdown[i].onclick = () => {
+                if(subvariation[0].style.height == 'initial') {
+                    for (let j = 0; j < subvariation.length; j++) {
+                        subvariation[j].style.height = '0';
+                        subvariation[j].style.display = 'none';
+                        
+                    }
+                } else {
+                    for (let j = 0; j < subvariation.length; j++) {
+                        subvariation[j].style.height = 'initial';
+                        subvariation[j].style.display = 'block';
+                    }
+                }
+                if(event.target == dropdown[0]) {
+                    if(variation[0].style.height == 'initial') {
+                        for (let j = 0; j < variation.length; j++) {
+                            variation[j].style.height = '0';
+                            variation[j].style.display = 'none';
+                            
+                        }
+                    } else {
+                        for (let j = 0; j < variation.length; j++) {
+                            variation[j].style.height = 'initial';
+                            variation[j].style.display = 'list-item';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+})();
 
 
 
