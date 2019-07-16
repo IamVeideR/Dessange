@@ -107,3 +107,52 @@ block content
                         a.products__pag--number 02
                     .products__pag
                         a.products__pag--number 03
+    .products__merchandise
+        .merchandise
+            .merchandise__close
+            .merchandise__container.container
+                .merchandise__image-block
+                    .merchandise__slider
+                        .merchandise__image
+                            .merchandise__picture(style='background: url(static/img/product-3.png) center no-repeat;')
+                    .merchandise__navigation
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                        .merchandise__slide
+                            .merchandise__nav
+                                .merchandise__nav--number(style='background: url(static/img/product-3.png) center no-repeat;')
+                .merchandise__text-block
+                    .merchandise__title Лосьон для тела
+                    .merchandise__price 5000 тг
+                    .merchandise__brand
+                        .brand__title Бренд:
+                        .brand__text Dessange
+                    .merchandise__description
+                        .description__title Описание:
+                        .description__text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    .merchandise__additional Приобрести продукт вы можете у нас в салонах, или связаться с нами.
+                    .merchandise__button.base-button.black Связаться с нами
+    .products__feedback
+        .feedback
+            .feedback__close
+            .feedback__container.container
+                h1.feedback__title Напишите Нам
+                form.feedback__form
+                    input(type='text' placeholder='Имя' name="feedback-name").feedback__input.feedback__name
+                    input(type='text' placeholder='Номер Телефона' name="feedback-phone").feedback__input.feedback__phone
+                    input(type='text' placeholder='E-mail' name="feedback-mail").feedback__input.feedback__mail
+                    textarea(type='textarea' placeholder='Сообщение' name="feedback-message").feedback__textarea
+                    .feedback__agreement
+                        input(type="checkbox" id='agreement' required)
+                        label(for="agreement") Согласен с правилами обработки информации 
+                    button.feedback__button.base-button.black Отправить
+
+
+

@@ -60,6 +60,23 @@ $(".slider__slides").slick({
     speed: 800,
 });
 
+$(".merchandise__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    speed: 800,
+    asNavFor: '.merchandise__navigation',
+});
+
+$(".merchandise__navigation").slick({
+    // centerMode: true,
+    // centerPadding: '50px',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.merchandise__slider',
+});
 
 if(window.screen.width > 765){
     window.onscroll = () => {
@@ -75,10 +92,10 @@ if(window.screen.width > 765){
         slidesToScroll: 1,
         speed: 1200,
         arrows: false,
-        asNavFor: '.products__navigation',
+        asNavFor: '.products-main__navigation',
     });
 
-    $(".products__navigation").slick({
+    $(".products-main__navigation").slick({
         centerMode: true,
         centerPadding: '50px',
         slidesToShow: 1,
@@ -111,39 +128,39 @@ if(window.screen.width > 765){
         draggable: false,
         swipe: false,
     });
+    
+    $(".portfolio__slides--1").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.portfolio__navigation--1',
+    });
+
+    $(".portfolio__navigation--1").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.portfolio__slides--1',
+    });
+
+    $(".portfolio__slides--2").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.portfolio__navigation--2',
+    });
+
+    $(".portfolio__navigation--2").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.portfolio__slides--2',
+    });
 }
-
-$(".portfolio__slides--1").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 1200,
-    arrows: false,
-    asNavFor: '.portfolio__navigation--1',
-});
-
-$(".portfolio__navigation--1").slick({
-    centerMode: true,
-    centerPadding: '50px',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.portfolio__slides--1',
-});
-
-$(".portfolio__slides--2").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 1200,
-    arrows: false,
-    asNavFor: '.portfolio__navigation--2',
-});
-
-$(".portfolio__navigation--2").slick({
-    centerMode: true,
-    centerPadding: '50px',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.portfolio__slides--2',
-});
 
 $(".products__pagination").slick({
     centerMode: true,
@@ -208,7 +225,11 @@ if(currentPage =='portfolio-page') {
                     block[j].style.height = '0';
                     block[j].style.marginTop = '0';
                 }
-                window.scrollTo(0,177 + i*61);
+                window.scrollTo({
+                    top: 177 + i*61,
+                    left: 0,
+                    behavior: 'smooth'
+                  });
                 dropdown[i].style.borderBottom = '1px solid #7b7b7b';
                 dropdown[i].classList.add('portfolio__dropdown--active');
                 block[i].style.height = 'initial';
@@ -220,6 +241,43 @@ if(currentPage =='portfolio-page') {
 
 if(currentPage =='products-page') {
     let dropdown = document.getElementsByClassName('products__type--title');
+    let merchandise = document.getElementsByClassName('products__merchandise');
+    let merchClose = document.getElementsByClassName('merchandise__close');
+    let merchContainer = document.getElementsByClassName('merchandise__container');
+    let product = document.getElementsByClassName('product');
+    let merchButton = document.getElementsByClassName('merchandise__button'); 
+    let feedback = document.getElementsByClassName('products__feedback')[0];
+    let feedbackClose = document.getElementsByClassName('feedback__close')[0];
+    let feedbackContainer = document.getElementsByClassName('feedback__container')[0];
+    let feedbackButton = document.getElementsByClassName('feedback__button')[0];
+
+    for (let i = 0; i < product.length; i++) {
+        product[i].onclick = () => {
+            merchandise[0].style.height = '100vh';
+        }
+        merchClose[0].onclick = () => {
+            merchandise[0].style.height = '0'; 
+        }
+        merchandise[0].onclick = () => {
+            merchContainer[0].onclick = (e) => {
+                e.stopPropagation();
+            }
+            merchandise[0].style.height = '0';
+        }
+        merchButton[0].onclick = () => {
+            merchandise[0].style.height = '0'; 
+            feedback.style.height = '100vh';
+        }
+        feedback.onclick = () => {
+            feedback.style.height = '0'; 
+        }
+        feedback.onclick = () => {
+            feedback.onclick = (e) => {
+                e.stopPropagation();
+            }
+            feedback.style.height = '0';
+        }
+    }
     if(window.screen.width < 765){
         for (let i = 0; i < dropdown.length; i++) {
             let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
@@ -257,43 +315,6 @@ if(currentPage =='products-page') {
     }
 }
 })();
-
-
-var w = 10;
-var n = 4;
-var val = [50, 30, 30,40];
-var wt = [5, 3, 3,4];
-
-var mat = new Array(n + 1);
-
-
-for (var i = 0; i < mat.length; i++) {
-  mat[i] = new Array(w + 1);
-}
-for (var r = 0; r < w + 1; r++) {
-    mat[0][r] = 0;
-}
-for (var  c = 0; c < n + 1; c++) {
-    mat[c][0] = 0;
-}
-
-for (var item = 0; item < n; item++) {
-    for (var capacity = 1; capacity <= w; capacity++) {
-        var maxValWithoutCurr = mat[item][capacity];
-        var maxValWithCurr = 0; 
-        var weightOfCurr = wt[item];
-        if (capacity >= weightOfCurr) {
-            maxValWithCurr = val[item];
-            var remainingCapacity = capacity - weightOfCurr;
-            maxValWithCurr += mat[item][remainingCapacity];
-        }
-        mat[item+1][capacity] = Math.max(maxValWithoutCurr, maxValWithCurr);
-    }
-}
-
-console.log(mat[n][w]);
-console.log(mat);
-
 
 
 

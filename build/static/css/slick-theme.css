@@ -93,6 +93,12 @@
 .slider__slides .slick-next:before {
     background: url(./../img/arrow\ right.png) center no-repeat;
 }
+.merchandise .slick-prev {
+    left: -10%;
+}
+.merchandise .slick-next {
+    right: -10%;
+}
 .slick-prev {
     left: -20%;
 }
