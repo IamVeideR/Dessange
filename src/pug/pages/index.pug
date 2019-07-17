@@ -3,6 +3,8 @@ extends ../layout/base
 block variables
     - pageTitle = 'Dessange' 
     - activePage = 'main-page'
+    - header = true
+    - footer = true
 block content
     section.slider
         .slider__container.container
@@ -14,7 +16,7 @@ block content
                         .slider__image(style='background: url(static/img/slide-1.jpg) center 50% no-repeat;')
                         .slider__image(style='background: url(static/img/slide-1.jpg) center 70% no-repeat;')
                 .slider__effect
-        a(target="_blank" href='n155177.yclients.com').slider__sign-up Записаться
+        a(target="_blank" href='https://n155177.yclients.com/').slider__sign-up Записаться
         .slider__navigation
             .slider__current 01
             .slider__scale 
@@ -134,7 +136,7 @@ block content
         .instagram__container.container
             .instagram__buttons
                 a.instagram__buttom.base-button.white Все Услуги
-                a(target="_blank" href='n155177.yclients.com').instagram__buttom.base-button.black Записаться
+                a(target="_blank" href='https://n155177.yclients.com/').instagram__buttom.base-button.black Записаться
             h1.instagram__title Instagram
             .instagram__list
                 .instagram__slide

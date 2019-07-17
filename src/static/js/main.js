@@ -38,7 +38,7 @@ class ClassWatcher {
         }
     }
 }
-
+if(headerLogo){
 headerDropdown.onclick = () => {
     if(headerMobile.style.display == 'flex') {
         headerMobile.style.display = 'none'; 
@@ -92,7 +92,23 @@ $(".masters__navigation").slick({
     asNavFor: '.masters__list',
 });
 
-$(".works__slide").slick({
+$(".works__slide--main").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 1200,
+    arrows: false,
+    responsive: [
+        {
+          breakpoint: 765,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
+});
+
+$(".works__slide--popup").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 1200,
@@ -197,6 +213,16 @@ $(".products__pagination").slick({
     centerPadding: '50px',
     slidesToShow: 1,
     slidesToScroll: 1,
+});
+
+$(".services__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 800,
+    fade: true,
+    arrows: false,
+    draggable: false,
+    swipe: false,
 });
 
 if(currentPage =='main-page') {
@@ -314,7 +340,6 @@ if(currentPage =='products-page') {
             let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
 
             dropdown[i].onclick = () => {
-                console.log(1);
                 if(subvariation[0].style.height == 'initial') {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = '0';
@@ -347,8 +372,48 @@ if(currentPage =='products-page') {
 }
 if(currentPage =='services-page') {
     let priceTitle = document.getElementsByClassName('pricelist__item--title');
-    let prevWork = document.getElementsByClassName('works__prev')[0];
-    let nextWork = document.getElementsByClassName('works__next')[0];
+    let prevWork = document.getElementsByClassName('works__prev--main')[0];
+    let nextWork = document.getElementsByClassName('works__next--main')[0];
+    let prevPopup = document.getElementsByClassName('works__prev--popup')[0];
+    let nextPopup = document.getElementsByClassName('works__next--popup')[0];
+    let foreman = document.getElementsByClassName('services__foreman');
+    let foremanClose = document.getElementsByClassName('foreman__close');
+    let foremanContainer = document.getElementsByClassName('foreman__container');
+    let foremanButton = document.getElementsByClassName('foreman__button');
+    let master = document.getElementsByClassName('master');
+    let dropdown = document.getElementsByClassName('services__dropdown')[0];
+    let category = document.getElementsByClassName('services__category-title');
+
+    dropdown.onclick = () => {
+        if(category[0].style.display == 'block') {
+            dropdown.classList.remove('services__dropdown--active');
+            for (let i = 0; i < category.length; i++) {
+                category[i].style.display = 'none';
+            } 
+        } else {
+            dropdown.classList.add('services__dropdown--active');
+            for (let i = 0; i < category.length; i++) {
+                category[i].style.display = 'block';
+            } 
+        }
+    }
+    
+    for (let i = 0; i < category.length; i++) {
+        category[i].onclick = () => {
+            for (let j = 0; j < category.length; j++) {
+                category[j].style.borderBottom = '1px solid #f5dad7';
+            }
+            category[i].style.borderBottom = '1px solid #616161';
+            $('.services__slider').slick('slickGoTo', i);
+            if(window.screen.width < 765) {
+                category[i].style.borderBottom = '1px solid #f5dad7';
+                dropdown.classList.remove('services__dropdown--active');
+                for (let j = 0; j < category.length; j++) {
+                    category[j].style.display = 'none';
+                }
+            }
+        }
+    }
 
     for (let i = 0; i < priceTitle.length; i++) {
         let priceItem = document.getElementsByClassName('pricelist__item')[i].getElementsByClassName('item');
@@ -372,11 +437,36 @@ if(currentPage =='services-page') {
         }
     }
     prevWork.onclick = () => {
-        $('.works__slide').slick('slickPrev');
+        $('.works__slide--main').slick('slickPrev');
     }
     nextWork.onclick = () => {
-        $('.works__slide').slick('slickNext');
+        $('.works__slide--main').slick('slickNext');
     }
+    prevPopup.onclick = () => {
+        $('.works__slide--popup').slick('slickPrev');
+    }
+    nextPopup.onclick = () => {
+        $('.works__slide--popup').slick('slickNext');
+    }
+
+    for (let i = 0; i < master.length; i++) {
+        master[i].onclick = () => {
+            foreman[0].style.height = '100vh';
+        }
+        foremanClose[0].onclick = () => {
+            foreman[0].style.height = '0'; 
+        }
+        foremanContainer[0].onclick = (e) => {
+            e.stopPropagation();
+        }
+        foreman[0].onclick = () => {
+            foreman[0].style.height = '0';
+        }
+        foremanButton[0].onclick = () => {
+            foreman[0].style.height = '0'; 
+        }
+    }
+}
 }
 })();
 
