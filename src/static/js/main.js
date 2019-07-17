@@ -71,11 +71,41 @@ $(".merchandise__slider").slick({
 });
 
 $(".merchandise__navigation").slick({
-    // centerMode: true,
-    // centerPadding: '50px',
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '.merchandise__slider',
+});
+
+$(".masters__list").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 1200,
+    arrows: false,
+    asNavFor: '.masters__navigation',
+});
+
+$(".masters__navigation").slick({
+    centerMode: true,
+    centerPadding: '50px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    asNavFor: '.masters__list',
+});
+
+$(".works__slide").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 1200,
+    arrows: false,
+    responsive: [
+        {
+          breakpoint: 765,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
 });
 
 if(window.screen.width > 765){
@@ -258,23 +288,23 @@ if(currentPage =='products-page') {
         merchClose[0].onclick = () => {
             merchandise[0].style.height = '0'; 
         }
+        merchContainer[0].onclick = (e) => {
+            e.stopPropagation();
+        }
         merchandise[0].onclick = () => {
-            merchContainer[0].onclick = (e) => {
-                e.stopPropagation();
-            }
             merchandise[0].style.height = '0';
         }
         merchButton[0].onclick = () => {
             merchandise[0].style.height = '0'; 
             feedback.style.height = '100vh';
         }
-        feedback.onclick = () => {
+        feedbackClose.onclick = () => {
             feedback.style.height = '0'; 
         }
+        feedbackContainer.onclick = (e) => {
+            e.stopPropagation();
+        }
         feedback.onclick = () => {
-            feedback.onclick = (e) => {
-                e.stopPropagation();
-            }
             feedback.style.height = '0';
         }
     }
@@ -284,6 +314,7 @@ if(currentPage =='products-page') {
             let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
 
             dropdown[i].onclick = () => {
+                console.log(1);
                 if(subvariation[0].style.height == 'initial') {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = '0';
@@ -312,6 +343,39 @@ if(currentPage =='products-page') {
                 }
             }
         }
+    }
+}
+if(currentPage =='services-page') {
+    let priceTitle = document.getElementsByClassName('pricelist__item--title');
+    let prevWork = document.getElementsByClassName('works__prev')[0];
+    let nextWork = document.getElementsByClassName('works__next')[0];
+
+    for (let i = 0; i < priceTitle.length; i++) {
+        let priceItem = document.getElementsByClassName('pricelist__item')[i].getElementsByClassName('item');
+
+        priceTitle[i].onclick = () => {
+            if(priceItem[0].style.height == 'initial') {
+                for (let j = 0; j < priceItem.length; j++) {
+                    priceItem[j].style.height = '0';
+                    priceItem[j].style.display = 'none';
+                    priceTitle[i].classList.remove('pricelist__item--title--opened');
+                    priceTitle[i].style.borderBottom= '1px solid #616161';
+                }
+            } else {
+                for (let j = 0; j < priceItem.length; j++) {
+                    priceItem[j].style.height = 'initial';
+                    priceItem[j].style.display = 'flex';
+                    priceTitle[i].classList.add('pricelist__item--title--opened');
+                    priceTitle[i].style.borderBottom= '1px solid #9b9b9b';
+                }
+            }
+        }
+    }
+    prevWork.onclick = () => {
+        $('.works__slide').slick('slickPrev');
+    }
+    nextWork.onclick = () => {
+        $('.works__slide').slick('slickNext');
     }
 }
 })();
