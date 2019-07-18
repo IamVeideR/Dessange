@@ -4,40 +4,8 @@ let headerDesktop = document.getElementsByClassName('header__block')[0];
 let headerDropdown = document.getElementsByClassName('header__dropdown')[0];
 let headerMobile = document.getElementsByClassName('header__mobile')[0];
 let headerLogo = document.getElementsByClassName('header__logo')[0];
+let onTheTop = document.getElementsByClassName('up-button')[0];
 
-class ClassWatcher {
-    constructor(targetNode, classToWatch, classAddedCallback) {
-        this.targetNode = targetNode
-        this.classToWatch = classToWatch
-        this.classAddedCallback = classAddedCallback
-        this.observer = null
-        this.lastClassState = targetNode.classList.contains(this.classToWatch)
-        this.init()
-    }
-    init() {
-        this.observer = new MutationObserver(this.mutationCallback)
-        this.observe()
-    }
-    observe() {
-        this.observer.observe(this.targetNode, { attributes: true })
-    }
-    disconnect() {
-        this.observer.disconnect()
-    }
-    mutationCallback = mutationsList => {
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                let currentClassState = mutation.target.classList.contains(this.classToWatch)
-                if(this.lastClassState !== currentClassState) {
-                    this.lastClassState = currentClassState
-                    if(currentClassState) {
-                        this.classAddedCallback()
-                    }
-                }
-            }
-        }
-    }
-}
 if(headerLogo){
 headerDropdown.onclick = () => {
     if(headerMobile.style.display == 'flex') {
@@ -49,6 +17,22 @@ headerDropdown.onclick = () => {
         headerLogo.style.display = 'none'; 
         headerDropdown.style.background = 'url(static/img/cross.png) center no-repeat';
     }
+}
+window.onscroll = () => {
+    if(window.screen.width < 765){
+        if(window.pageYOffset > screen.height) {
+            onTheTop.style.display = 'block';
+        } else {
+            onTheTop.style.display = 'none';
+        }
+    }
+}
+onTheTop.onclick = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
 }
 
 $(".slider__slides").slick({
@@ -74,22 +58,6 @@ $(".merchandise__navigation").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '.merchandise__slider',
-});
-
-$(".masters__list").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 1200,
-    arrows: false,
-    asNavFor: '.masters__navigation',
-});
-
-$(".masters__navigation").slick({
-    centerMode: true,
-    centerPadding: '50px',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.masters__list',
 });
 
 $(".works__slide--main").slick({
@@ -165,6 +133,21 @@ if(window.screen.width > 765){
         asNavFor: '.instagram__list',
     });
 
+    $(".masters__list").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.masters__navigation',
+    });
+    
+    $(".masters__navigation").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.masters__list',
+    });
     $(".portfolio__content").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -225,34 +208,6 @@ $(".services__slider").slick({
     swipe: false,
 });
 
-if(currentPage =='main-page') {
-    const changeScale = () => {
-        let current = document.getElementsByClassName('slider__current')[0];
-        let all = document.getElementsByClassName('slider__all')[0];
-        let scale = document.getElementsByClassName('slider__scale--before')[0];
-        let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
-        
-        if(image.length >= 10) {
-            all.innerHTML = image.length;
-        } else {
-            all.innerHTML = "0"+image.length;  
-        }    
-        scale.style.width = `${Math.ceil(100/image.length)}%`;
-        for(let i = 0; i<image.length; i++) {
-            function workOnClassAdd() {
-                if(i >= 9) {
-                    current.innerHTML = i+1;
-                } else {
-                    current.innerHTML = `0${i+1}`;  
-                } 
-                scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
-            }
-            let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
-        }
-    };
-    changeScale();
-}
-
 if(currentPage =='portfolio-page') {
     let category = document.getElementsByClassName('portfolio__category-title');
     let dropdown = document.getElementsByClassName('portfolio__dropdown');
@@ -306,7 +261,14 @@ if(currentPage =='products-page') {
     let feedbackClose = document.getElementsByClassName('feedback__close')[0];
     let feedbackContainer = document.getElementsByClassName('feedback__container')[0];
     let feedbackButton = document.getElementsByClassName('feedback__button')[0];
+    let active = document.getElementsByClassName('active__block');
+    let activeClose = document.getElementsByClassName('active__close');
 
+    for (let i = 0; i < active.length; i++) {
+        activeClose[i].onclick = () => {
+            active[i].style.display = 'none';
+        }
+    }
     for (let i = 0; i < product.length; i++) {
         product[i].onclick = () => {
             merchandise[0].style.height = '100vh';
@@ -383,6 +345,8 @@ if(currentPage =='services-page') {
     let master = document.getElementsByClassName('master');
     let dropdown = document.getElementsByClassName('services__dropdown')[0];
     let category = document.getElementsByClassName('services__category-title');
+    let more = document.getElementsByClassName('masters__more')[0];
+    let slide = document.getElementsByClassName('masters__list')[0].getElementsByClassName('masters__slide');
 
     dropdown.onclick = () => {
         if(category[0].style.display == 'block') {
@@ -397,16 +361,31 @@ if(currentPage =='services-page') {
             } 
         }
     }
-    
+    if(window.screen.width < 765) {
+        slide[0].style.display = 'block';
+        for (let i = 1; i <slide.length; i++) {
+                slide[i].style.display = 'none';
+        }
+    }
+    more.onclick = () => {
+        for (let i = slide.length-1; i > 0; i--) {
+            if ((slide[i].style.display == 'none') && (slide[i-1].style.display == 'block')) {
+                slide[i].style.display = 'block';
+            }
+            if(slide[slide.length-1].style.display == 'block') {
+                more.style.display = 'none';
+            }
+        }
+    }
     for (let i = 0; i < category.length; i++) {
         category[i].onclick = () => {
             for (let j = 0; j < category.length; j++) {
-                category[j].style.borderBottom = '1px solid #f5dad7';
+                category[j].classList.remove('services__category-title--active');
             }
-            category[i].style.borderBottom = '1px solid #616161';
+            category[i].classList.add('services__category-title--active');
             $('.services__slider').slick('slickGoTo', i);
             if(window.screen.width < 765) {
-                category[i].style.borderBottom = '1px solid #f5dad7';
+                category[i].classList.remove('services__category-title--active');
                 dropdown.classList.remove('services__dropdown--active');
                 for (let j = 0; j < category.length; j++) {
                     category[j].style.display = 'none';
@@ -467,6 +446,66 @@ if(currentPage =='services-page') {
         }
     }
 }
+}
+class ClassWatcher {
+    constructor(targetNode, classToWatch, classAddedCallback) {
+        this.targetNode = targetNode
+        this.classToWatch = classToWatch
+        this.classAddedCallback = classAddedCallback
+        this.observer = null
+        this.lastClassState = targetNode.classList.contains(this.classToWatch)
+        this.init()
+    }
+    init() {
+        this.observer = new MutationObserver(this.mutationCallback)
+        this.observe()
+    }
+    observe() {
+        this.observer.observe(this.targetNode, { attributes: true })
+    }
+    disconnect() {
+        this.observer.disconnect()
+    }
+    mutationCallback = mutationsList => {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                let currentClassState = mutation.target.classList.contains(this.classToWatch)
+                if(this.lastClassState !== currentClassState) {
+                    this.lastClassState = currentClassState
+                    if(currentClassState) {
+                        this.classAddedCallback()
+                    }
+                }
+            }
+        }
+    }
+}
+if(currentPage =='main-page') {
+    const changeScale = () => {
+        let current = document.getElementsByClassName('slider__current')[0];
+        let all = document.getElementsByClassName('slider__all')[0];
+        let scale = document.getElementsByClassName('slider__scale--before')[0];
+        let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
+        
+        if(image.length >= 10) {
+            all.innerHTML = image.length;
+        } else {
+            all.innerHTML = "0"+image.length;  
+        }    
+        scale.style.width = `${Math.ceil(100/image.length)}%`;
+        for(let i = 0; i<image.length; i++) {
+            function workOnClassAdd() {
+                if(i >= 9) {
+                    current.innerHTML = i+1;
+                } else {
+                    current.innerHTML = `0${i+1}`;  
+                } 
+                scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
+            }
+            let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
+        }
+    };
+    changeScale();
 }
 })();
 
