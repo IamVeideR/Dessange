@@ -1,0 +1,11 @@
+extends ../layout/base
+block variables
+    - pageTitle = 'Dessange' 
+    - activePage = '404-page'
+block content
+    section.page-404
+        .page-404__container.container
+            a(href="index.html").page-404__logo
+            .page-404__block
+                .page-404__text Страница не найдена
+                .page-404__back Вернуться на #[a(href="index.html") Главную]

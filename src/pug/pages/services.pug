@@ -3,191 +3,412 @@ extends ../layout/base
 block variables
     - pageTitle = 'Dessange' 
     - activePage = 'services-page'
+    - header = true
+    - footer = true
 block content
     section.services
         .services__top-menu
             .services__container.container
                 .services__categories
-                    .services__category-title для волос
+                    .services__dropdown Услуги
+            .services__category-drop  
+                .services__container.container 
+                    .services__category-title.services__category-title--active для волос
                     .services__category-title макияж
                     .services__category-title брови и ресницы 
                     .services__category-title ногтевой сервис
                     .services__category-title депиляция
-        .services__content
-            .services__container.container
-                .services__background
-                .services__frontground
-                .services__section-slide
-                    .services__category
-                        .services__image
-                            .services__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
-                        .services__text-block
-                            .services__title Для волос
-                            p.services__text Presently a breeze sprang up; Stubb feigned to cast off from the whale; hoisting his boats, the Frenchman soon increased his distance, while the Pequod slid in between him and Stubb’s whale. Whereupon Stubb quickly pulled to the floating body, and hailing the Pequod to give notice.
-                            .services__title Детали
-                            .services__details
-                                .detail__title время
-                                .detail__name от двух часов
-                            .services__details
-                                .detail__title Цена
-                                .detail__name От 5000 тг
-                            .services__button.base-button.black Запистаться
-        .services__pricelist
-            .services__container.container
-                h1.pricelist__title Прайс Лист
-                .pricelist__list
-                    .pricelist__item 
-                        .pricelist__item--title укладка
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 до 12000 тг
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 до 12000 тг
-                    .pricelist__item 
-                        .pricelist__item--title Лечение волос
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                    .pricelist__item 
-                        .pricelist__item--title Выпрямление волос 
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 до 12000 тг
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                    .pricelist__item 
-                        .pricelist__item--title стрижка
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 до 12000 тг
-                    .pricelist__item 
-                        .pricelist__item--title Окрашивание
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                        .item
-                            .item__title Создаем форму стрижки
-                            .item__price Цена:
-                            .item__value от 5000 тг
-                .pricelist__buttons
-                    a.pricelist__button.base-button.black Скачать Прайс Лист
-                    a(download).pricelist__button.base-button.white Записаться
-        .services__masters
-            .masters__container.container
-                h1.masters__title Мастера
-                p.masters__text We help people find the perfect product at the right price.
-                .masters__list
-                    .masters__slide
-                        .masters__block
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
-                                p.master__title Ruffled dress
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
-                                p.master__title Oversized Sweatshirt In
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
-                                p.master__title Slim-fit medium wash
-                                p.master__feature Tim jeans
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
-                                p.master__title Sleeveless T-Shirt With
-                                p.master__feature Dropped Armhole
-                    .masters__slide
-                        .masters__block
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
-                                p.master__title Ruffled dress 5
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
-                                p.master__title Oversized Sweatshirt In  6
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
-                                p.master__title Slim-fit medium wash 7
-                                p.master__feature Tim jeans
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
-                                p.master__title Sleeveless T-Shirt With 8
-                                p.master__feature Dropped Armhole
-                    .masters__slide
-                        .masters__block
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
-                                p.master__title Sleeveless T-Shirt With 9
-                                p.master__feature Dropped Armhole
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
-                                p.master__title Ruffled dress 10
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
-                                p.master__title Oversized Sweatshirt In  11
-                                p.master__feature Pink
-                            a(href="products.html").master
-                                .master__image
-                                    .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
-                                p.master__title Slim-fit medium wash 12
-                                p.master__feature Tim jeans
-                .masters__navigation
-                    .masters__nav
-                        .masters__nav--number 01
-                    .masters__nav
-                        .masters__nav--number 02
-                    .masters__nav
-                        .masters__nav--number 03
-        .services__works
-            .works__container.container
-                .works__navigation
-                    h1.works__title Примеры Работ
-                    .works__arrows
-                        .works__prev
-                        .works__next
-                .works__slide
-                    .works
-                        .works__image
-                            .works__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
-                    .works
-                        .works__image
-                            .works__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
-                    .works
-                        .works__image
-                            .works__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
-                    .works
-                        .works__image
-                            .works__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
-                        
+        .services__slider
+            .services__category-block
+                .services__content
+                    .services__container.container
+                        .services__background
+                        .services__frontground
+                        .services__section-slide
+                            .services__category
+                                .services__image
+                                    .services__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                .services__text-block
+                                    .services__title Для волос
+                                    p.services__text Presently a breeze sprang up; Stubb feigned to cast off from the whale; hoisting his boats, the Frenchman soon increased his distance, while the Pequod slid in between him and Stubb’s whale. Whereupon Stubb quickly pulled to the floating body, and hailing the Pequod to give notice.
+                                    .services__title Детали
+                                    .services__details
+                                        .detail__title время
+                                        .detail__name от двух часов
+                                    section.services__details
+                                        .detail__title Цена
+                                        .detail__name От 5000 тг
+                                    .services__button.base-button.black Записаться
+                .services__pricelist
+                    .pricelist__container.container
+                        h1.pricelist__title Прайс Лист
+                        .pricelist__list
+                            .pricelist__item 
+                                .pricelist__item--title укладка
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Лечение волос
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Выпрямление волос 
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                            .pricelist__item 
+                                .pricelist__item--title стрижка
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Окрашивание
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                        .pricelist__buttons
+                            a(download).pricelist__button.base-button.white Скачать Прайс Лист
+                            a.pricelist__button.base-button.black Записаться
+                .services__masters
+                    .masters__container.container
+                        h1.masters__title Мастера
+                        p.masters__text We help people find the perfect product at the right price.
+                        .masters__list
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Ruffled dress
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash
+                                        p.master__feature Tim jeans
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With
+                                        p.master__feature Dropped Armhole
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Ruffled dress 5
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In  6
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash 7
+                                        p.master__feature Tim jeans
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With 8
+                                        p.master__feature Dropped Armhole
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With 9
+                                        p.master__feature Dropped Armhole
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Ruffled dress 10
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In  11
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash 12
+                                        p.master__feature Tim jeans
+                        .masters__navigation
+                            .masters__nav
+                                .masters__nav--number 01
+                            .masters__nav
+                                .masters__nav--number 02
+                            .masters__nav
+                                .masters__nav--number 03
+                        .masters__more Загрузить еще
+                .services__works
+                    .works__container.container
+                        .works__navigation
+                            h1.works__title Примеры Работ
+                            .works__arrows
+                                .works__prev.works__prev--main
+                                .works__next.works__next--main
+                        .works__slide.works__slide--main
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+            .services__category-block
+                .services__content
+                    .services__container.container
+                        .services__background
+                        .services__frontground
+                        .services__section-slide
+                            .services__category
+                                .services__image
+                                    .services__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                .services__text-block
+                                    .services__title Не Для волос
+                                    p.services__text Presently a breeze sprang up; Stubb feigned to cast off from the whale; hoisting his boats, the Frenchman soon increased his distance, while the Pequod slid in between him and Stubb’s whale. Whereupon Stubb quickly pulled to the floating body, and hailing the Pequod to give notice.
+                                    .services__title Детали
+                                    .services__details
+                                        .detail__title время
+                                        .detail__name от двух часов
+                                    section.services__details
+                                        .detail__title Цена
+                                        .detail__name От 5000 тг
+                                    .services__button.base-button.black Записаться
+                .services__pricelist
+                    .services__container.container
+                        h1.pricelist__title Прайс Лист
+                        .pricelist__list
+                            .pricelist__item 
+                                .pricelist__item--title укладка
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Лечение волос
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Выпрямление волос 
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                            .pricelist__item 
+                                .pricelist__item--title стрижка
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 до 12000 тг
+                            .pricelist__item 
+                                .pricelist__item--title Окрашивание
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                                .item
+                                    .item__title Создаем форму стрижки
+                                    .item__price Цена:
+                                    .item__value от 5000 тг
+                        .pricelist__buttons
+                            a.pricelist__button.base-button.black Скачать Прайс Лист
+                            a(download).pricelist__button.base-button.white Записаться
+                .services__masters
+                    .masters__container.container
+                        h1.masters__title Мастера
+                        p.masters__text We help people find the perfect product at the right price.
+                        .masters__list
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Ruffled dress
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash
+                                        p.master__feature Tim jeans
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With
+                                        p.master__feature Dropped Armhole
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Ruffled dress 5
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In  6
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash 7
+                                        p.master__feature Tim jeans
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With 8
+                                        p.master__feature Dropped Armhole
+                            .masters__slide
+                                .masters__block
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-1.png) center no-repeat;')
+                                        p.master__title Sleeveless T-Shirt With 9
+                                        p.master__feature Dropped Armhole
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                                        p.master__title Ruffled dress 10
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-3.png) center no-repeat;')
+                                        p.master__title Oversized Sweatshirt In  11
+                                        p.master__feature Pink
+                                    .master
+                                        .master__image
+                                            .master__picture(style='background: url(static/img/master-4.png) center no-repeat;')
+                                        p.master__title Slim-fit medium wash 12
+                                        p.master__feature Tim jeans
+                        .masters__navigation
+                            .masters__nav
+                                .masters__nav--number 01
+                            .masters__nav
+                                .masters__nav--number 02
+                            .masters__nav
+                                .masters__nav--number 03
+                .services__works
+                    .works__container.container
+                        .works__navigation
+                            h1.works__title Примеры Работ
+                            .works__arrows
+                                .works__prev.works__prev--main
+                                .works__next.works__next--main
+                        .works__slide.works__slide--main
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                            .works
+                                .works__image
+                                    .works__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+        .services__foreman
+            .foreman
+                .foreman__close
+                .foreman__container.container
+                    .foreman__image-block
+                        .foreman__slider
+                            .foreman__image
+                                .foreman__picture(style='background: url(static/img/master-2.png) center no-repeat;')
+                    .foreman__text-block
+                        .foreman__title Турсунова Алия
+                        p.foreman__text В салоне красоты  работает с 2000 года.<br> Внимательный и индивидуальный подход к каждому клиенту. Исполняет стрижки с учетом пожеланий клиента и модных тенденций, от элегантной классики до «экстремального» креатива. Любые техники окрашивания волос, программы по уходу, восстановлению и лечению волос. Постоянное повышение квалификации, участие в семинарах по новейшим тенденциям в мире красоты.
+                        .foreman__specialization
+                            .specialization__title Специализация:
+                            p.specialization__text колорирование волос, креативная стрижка, лечение волос, модельная стрижка, тонирование волос, уход за волосами
+                        .foreman__achievements
+                            .achievements__title Достижения:
+                            p.achievements__text Общая практика:<br> Опыт работы 18 лет.
+                        a(target="_blank" href='https://n155177.yclients.com/').foreman__button.base-button.black Записаться
+                    .foreman__works
+                        .works__container.container
+                            .works__navigation
+                                h1.works__title Работы Мастера
+                                .works__arrows
+                                    .works__prev.works__prev--popup
+                                    .works__next.works__next--popup
+                            .works__slide.works__slide--popup
+                                .works
+                                    .works__image
+                                        .works__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                .works
+                                    .works__image
+                                        .works__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                .works
+                                    .works__image
+                                        .works__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                .works
+                                    .works__image
+                                        .works__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    
 
 
         

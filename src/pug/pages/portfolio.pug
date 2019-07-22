@@ -3,13 +3,15 @@ extends ../layout/base
 block variables
     - pageTitle = 'Dessange' 
     - activePage = 'portfolio-page'
+    - header = true
+    - footer = true
 block content
     section.portfolio
         .portfolio__container.container
             h1.portfolio__title Портфолио
             p.portfolio__text We help people find the perfect product at the right price.
             .portfolio__categories
-                .portfolio__category-title для волос
+                .portfolio__category-title.portfolio__category-title--active для волос
                 .portfolio__category-title макияж
                 .portfolio__category-title брови и ресницы 
                 .portfolio__category-title ногтевой сервис
@@ -49,9 +51,9 @@ block content
                             .portfolio__page
                                 .portfolio__block
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
                                     .portfolio__image
@@ -59,45 +61,45 @@ block content
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
-                                    .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
-                                    .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
                             .portfolio__page
                                 .portfolio__block
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
                         .portfolio__navigation.portfolio__navigation--1
                             .portfolio__nav
                                 .portfolio__nav--number 01
@@ -112,29 +114,29 @@ block content
                             .portfolio__page
                                 .portfolio__block
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
                                     .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
                                     .portfolio__image
-                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
-                                    .portfolio__image
                                         .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
                             .portfolio__page
                                 .portfolio__block
                                     .portfolio__image
@@ -203,18 +205,276 @@ block content
                 .portfolio__section-slide
                     .portfolio__dropdown ногтевой сервис
                     .portfolio__category
+                        .portfolio__slides.portfolio__slides--1
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                        .portfolio__navigation.portfolio__navigation--1
+                            .portfolio__nav
+                                .portfolio__nav--number 01
+                            .portfolio__nav
+                                .portfolio__nav--number 02
+                            .portfolio__nav
+                                .portfolio__nav--number 03
                         .portfolio__slides.portfolio__slides--4
                             .portfolio__page
                                 .portfolio__block
                 .portfolio__section-slide
                     .portfolio__dropdown депиляция
                     .portfolio__category
+                        .portfolio__slides.portfolio__slides--1
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                        .portfolio__navigation.portfolio__navigation--1
+                            .portfolio__nav
+                                .portfolio__nav--number 01
+                            .portfolio__nav
+                                .portfolio__nav--number 02
+                            .portfolio__nav
+                                .portfolio__nav--number 03
                         .portfolio__slides.portfolio__slides--5
                             .portfolio__page
                                 .portfolio__block
                 .portfolio__section-slide
                     .portfolio__dropdown о салоне
                     .portfolio__category
+                        .portfolio__slides.portfolio__slides--1
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                            .portfolio__page
+                                .portfolio__block
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/slide-1.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-2.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-4.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-3.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-5.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/instagram-6.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-12.jpg) center no-repeat;')
+                                    .portfolio__image
+                                        .portfolio__picture(style='background: url(static/img/portfolio-11.jpg) center no-repeat;')
+                        .portfolio__navigation.portfolio__navigation--1
+                            .portfolio__nav
+                                .portfolio__nav--number 01
+                            .portfolio__nav
+                                .portfolio__nav--number 02
+                            .portfolio__nav
+                                .portfolio__nav--number 03
                         .portfolio__slides.portfolio__slides--6
                             .portfolio__page
                                 .portfolio__block

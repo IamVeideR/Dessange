@@ -4,41 +4,9 @@ let headerDesktop = document.getElementsByClassName('header__block')[0];
 let headerDropdown = document.getElementsByClassName('header__dropdown')[0];
 let headerMobile = document.getElementsByClassName('header__mobile')[0];
 let headerLogo = document.getElementsByClassName('header__logo')[0];
+let onTheTop = document.getElementsByClassName('up-button')[0];
 
-class ClassWatcher {
-    constructor(targetNode, classToWatch, classAddedCallback) {
-        this.targetNode = targetNode
-        this.classToWatch = classToWatch
-        this.classAddedCallback = classAddedCallback
-        this.observer = null
-        this.lastClassState = targetNode.classList.contains(this.classToWatch)
-        this.init()
-    }
-    init() {
-        this.observer = new MutationObserver(this.mutationCallback)
-        this.observe()
-    }
-    observe() {
-        this.observer.observe(this.targetNode, { attributes: true })
-    }
-    disconnect() {
-        this.observer.disconnect()
-    }
-    mutationCallback = mutationsList => {
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                let currentClassState = mutation.target.classList.contains(this.classToWatch)
-                if(this.lastClassState !== currentClassState) {
-                    this.lastClassState = currentClassState
-                    if(currentClassState) {
-                        this.classAddedCallback()
-                    }
-                }
-            }
-        }
-    }
-}
-
+if(headerLogo){
 headerDropdown.onclick = () => {
     if(headerMobile.style.display == 'flex') {
         headerMobile.style.display = 'none'; 
@@ -49,6 +17,22 @@ headerDropdown.onclick = () => {
         headerLogo.style.display = 'none'; 
         headerDropdown.style.background = 'url(static/img/cross.png) center no-repeat';
     }
+}
+window.onscroll = () => {
+    if(window.screen.width < 765){
+        if(window.pageYOffset > screen.height) {
+            onTheTop.style.display = 'block';
+        } else {
+            onTheTop.style.display = 'none';
+        }
+    }
+}
+onTheTop.onclick = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
 }
 
 $(".slider__slides").slick({
@@ -76,23 +60,23 @@ $(".merchandise__navigation").slick({
     asNavFor: '.merchandise__slider',
 });
 
-$(".masters__list").slick({
-    slidesToShow: 1,
+$(".works__slide--main").slick({
+    slidesToShow: 3,
     slidesToScroll: 1,
     speed: 1200,
     arrows: false,
-    asNavFor: '.masters__navigation',
+    responsive: [
+        {
+          breakpoint: 765,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
 });
 
-$(".masters__navigation").slick({
-    centerMode: true,
-    centerPadding: '50px',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.masters__list',
-});
-
-$(".works__slide").slick({
+$(".works__slide--popup").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 1200,
@@ -149,6 +133,21 @@ if(window.screen.width > 765){
         asNavFor: '.instagram__list',
     });
 
+    $(".masters__list").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1200,
+        arrows: false,
+        asNavFor: '.masters__navigation',
+    });
+    
+    $(".masters__navigation").slick({
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.masters__list',
+    });
     $(".portfolio__content").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -199,33 +198,15 @@ $(".products__pagination").slick({
     slidesToScroll: 1,
 });
 
-if(currentPage =='main-page') {
-    const changeScale = () => {
-        let current = document.getElementsByClassName('slider__current')[0];
-        let all = document.getElementsByClassName('slider__all')[0];
-        let scale = document.getElementsByClassName('slider__scale--before')[0];
-        let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
-        
-        if(image.length >= 10) {
-            all.innerHTML = image.length;
-        } else {
-            all.innerHTML = "0"+image.length;  
-        }    
-        scale.style.width = `${Math.ceil(100/image.length)}%`;
-        for(let i = 0; i<image.length; i++) {
-            function workOnClassAdd() {
-                if(i >= 9) {
-                    current.innerHTML = i+1;
-                } else {
-                    current.innerHTML = `0${i+1}`;  
-                } 
-                scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
-            }
-            let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
-        }
-    };
-    changeScale();
-}
+$(".services__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 800,
+    fade: true,
+    arrows: false,
+    draggable: false,
+    swipe: false,
+});
 
 if(currentPage =='portfolio-page') {
     let category = document.getElementsByClassName('portfolio__category-title');
@@ -268,7 +249,9 @@ if(currentPage =='portfolio-page') {
         }
     }
 }
-
+$(function(){
+    $(".feedback__phone").mask("+9999999999?9");
+  });
 if(currentPage =='products-page') {
     let dropdown = document.getElementsByClassName('products__type--title');
     let merchandise = document.getElementsByClassName('products__merchandise');
@@ -280,7 +263,33 @@ if(currentPage =='products-page') {
     let feedbackClose = document.getElementsByClassName('feedback__close')[0];
     let feedbackContainer = document.getElementsByClassName('feedback__container')[0];
     let feedbackButton = document.getElementsByClassName('feedback__button')[0];
+    let active = document.getElementsByClassName('active__block');
+    let activeClose = document.getElementsByClassName('active__close');
+    let more = document.getElementsByClassName('products__more')[0];
+    let slide = document.getElementsByClassName('products__list')[0].getElementsByClassName('product');
 
+
+    if(window.screen.width < 765) {
+        slide[0].style.display = 'block';
+        for (let i = 0; i < 4; i++) {
+            slide[i].style.display = 'block';
+    }
+        for (let i = 4; i <slide.length; i++) {
+            slide[i].style.display = 'none';
+        }
+    }
+    more.onclick = () => {
+        for (let i = slide.length-1; i > 3; i--) {
+            if ((slide[i].style.display == 'none') && (slide[i-4].style.display == 'block')) {
+                for (let j = i; j > i-4; j--) {
+                    slide[j].style.display = 'block';
+                }
+            }
+            if(slide[slide.length-1].style.display == 'block') {
+                more.style.display = 'none';
+            }
+        }
+    }
     for (let i = 0; i < product.length; i++) {
         product[i].onclick = () => {
             merchandise[0].style.height = '100vh';
@@ -308,23 +317,46 @@ if(currentPage =='products-page') {
             feedback.style.height = '0';
         }
     }
+    for (let i = 0; i < dropdown.length; i++) {
+        let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
+        let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
+        for (let j = 0; j < subvariation.length; j++) {
+            subvariation[j].onclick = () => {
+                if(subvariation[j].classList.contains('products__subvariation--active')) {
+                    subvariation[j].classList.remove('products__subvariation--active'); 
+                } else {
+                    subvariation[j].classList.add('products__subvariation--active'); 
+                }  
+            }        
+        } 
+        for (let j = 0; j < variation.length; j++) {
+            variation[j].onclick = () => {
+                if(variation[j].classList.contains('products__variation--active')) {
+                    variation[j].classList.remove('products__variation--active'); 
+                } else {
+                    variation[j].classList.add('products__variation--active'); 
+                }  
+            }        
+        } 
+    }
     if(window.screen.width < 765){
         for (let i = 0; i < dropdown.length; i++) {
             let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
             let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
 
             dropdown[i].onclick = () => {
-                console.log(1);
                 if(subvariation[0].style.height == 'initial') {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = '0';
                         subvariation[j].style.display = 'none';
+                        document.getElementsByClassName('products__type')[i].classList.remove('products__type--opened');
                         
                     }
                 } else {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = 'initial';
                         subvariation[j].style.display = 'block';
+                        document.getElementsByClassName('products__type')[i].classList.add('products__type--opened');
                     }
                 }
                 if(event.target == dropdown[0]) {
@@ -332,7 +364,6 @@ if(currentPage =='products-page') {
                         for (let j = 0; j < variation.length; j++) {
                             variation[j].style.height = '0';
                             variation[j].style.display = 'none';
-                            
                         }
                     } else {
                         for (let j = 0; j < variation.length; j++) {
@@ -347,8 +378,65 @@ if(currentPage =='products-page') {
 }
 if(currentPage =='services-page') {
     let priceTitle = document.getElementsByClassName('pricelist__item--title');
-    let prevWork = document.getElementsByClassName('works__prev')[0];
-    let nextWork = document.getElementsByClassName('works__next')[0];
+    let prevWork = document.getElementsByClassName('works__prev--main')[0];
+    let nextWork = document.getElementsByClassName('works__next--main')[0];
+    let prevPopup = document.getElementsByClassName('works__prev--popup')[0];
+    let nextPopup = document.getElementsByClassName('works__next--popup')[0];
+    let foreman = document.getElementsByClassName('services__foreman');
+    let foremanClose = document.getElementsByClassName('foreman__close');
+    let foremanContainer = document.getElementsByClassName('foreman__container');
+    let foremanButton = document.getElementsByClassName('foreman__button');
+    let master = document.getElementsByClassName('master');
+    let dropdown = document.getElementsByClassName('services__dropdown')[0];
+    let category = document.getElementsByClassName('services__category-title');
+    let more = document.getElementsByClassName('masters__more')[0];
+    let slide = document.getElementsByClassName('masters__list')[0].getElementsByClassName('masters__slide');
+
+    dropdown.onclick = () => {
+        if(category[0].style.display == 'block') {
+            dropdown.classList.remove('services__dropdown--active');
+            for (let i = 0; i < category.length; i++) {
+                category[i].style.display = 'none';
+            } 
+        } else {
+            dropdown.classList.add('services__dropdown--active');
+            for (let i = 0; i < category.length; i++) {
+                category[i].style.display = 'block';
+            } 
+        }
+    }
+    if(window.screen.width < 765) {
+        slide[0].style.display = 'block';
+        for (let i = 1; i <slide.length; i++) {
+                slide[i].style.display = 'none';
+        }
+    }
+    more.onclick = () => {
+        for (let i = slide.length-1; i > 0; i--) {
+            if ((slide[i].style.display == 'none') && (slide[i-1].style.display == 'block')) {
+                slide[i].style.display = 'block';
+            }
+            if(slide[slide.length-1].style.display == 'block') {
+                more.style.display = 'none';
+            }
+        }
+    }
+    for (let i = 0; i < category.length; i++) {
+        category[i].onclick = () => {
+            for (let j = 0; j < category.length; j++) {
+                category[j].classList.remove('services__category-title--active');
+            }
+            category[i].classList.add('services__category-title--active');
+            $('.services__slider').slick('slickGoTo', i);
+            if(window.screen.width < 765) {
+                category[i].classList.remove('services__category-title--active');
+                dropdown.classList.remove('services__dropdown--active');
+                for (let j = 0; j < category.length; j++) {
+                    category[j].style.display = 'none';
+                }
+            }
+        }
+    }
 
     for (let i = 0; i < priceTitle.length; i++) {
         let priceItem = document.getElementsByClassName('pricelist__item')[i].getElementsByClassName('item');
@@ -372,13 +460,95 @@ if(currentPage =='services-page') {
         }
     }
     prevWork.onclick = () => {
-        $('.works__slide').slick('slickPrev');
+        $('.works__slide--main').slick('slickPrev');
     }
     nextWork.onclick = () => {
-        $('.works__slide').slick('slickNext');
+        $('.works__slide--main').slick('slickNext');
+    }
+    prevPopup.onclick = () => {
+        $('.works__slide--popup').slick('slickPrev');
+    }
+    nextPopup.onclick = () => {
+        $('.works__slide--popup').slick('slickNext');
+    }
+
+    for (let i = 0; i < master.length; i++) {
+        master[i].onclick = () => {
+            foreman[0].style.height = '100vh';
+        }
+        foremanClose[0].onclick = () => {
+            foreman[0].style.height = '0'; 
+        }
+        foremanContainer[0].onclick = (e) => {
+            e.stopPropagation();
+        }
+        foreman[0].onclick = () => {
+            foreman[0].style.height = '0';
+        }
+        foremanButton[0].onclick = () => {
+            foreman[0].style.height = '0'; 
+        }
     }
 }
+}
+class ClassWatcher {
+    constructor(targetNode, classToWatch, classAddedCallback) {
+        this.targetNode = targetNode
+        this.classToWatch = classToWatch
+        this.classAddedCallback = classAddedCallback
+        this.observer = null
+        this.lastClassState = targetNode.classList.contains(this.classToWatch)
+        this.init()
+    }
+    init() {
+        this.observer = new MutationObserver(this.mutationCallback)
+        this.observe()
+    }
+    observe() {
+        this.observer.observe(this.targetNode, { attributes: true })
+    }
+    disconnect() {
+        this.observer.disconnect()
+    }
+    mutationCallback = mutationsList => {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                let currentClassState = mutation.target.classList.contains(this.classToWatch)
+                if(this.lastClassState !== currentClassState) {
+                    this.lastClassState = currentClassState
+                    if(currentClassState) {
+                        this.classAddedCallback()
+                    }
+                }
+            }
+        }
+    }
+}
+if(currentPage =='main-page') {
+    const changeScale = () => {
+        let current = document.getElementsByClassName('slider__current')[0];
+        let all = document.getElementsByClassName('slider__all')[0];
+        let scale = document.getElementsByClassName('slider__scale--before')[0];
+        let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
+        
+        if(image.length >= 10) {
+            all.innerHTML = image.length;
+        } else {
+            all.innerHTML = "0"+image.length;  
+        }    
+        scale.style.width = `${Math.ceil(100/image.length)}%`;
+        for(let i = 0; i<image.length; i++) {
+            function workOnClassAdd() {
+                if(i >= 9) {
+                    current.innerHTML = i+1;
+                } else {
+                    current.innerHTML = `0${i+1}`;  
+                } 
+                scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
+            }
+            let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
+        }
+    };
+    changeScale();
+}
 })();
-
-
-

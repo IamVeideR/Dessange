@@ -36,6 +36,16 @@
         padding-bottom: 2px;
     }
 }
+.up-button {
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 2vh;
+    z-index: 8;
+    width: 100px;
+    height: 29px;
+    line-height: 30px;
+}
 @media (max-width: $tablet) {
     .footer { 
         &__container {
