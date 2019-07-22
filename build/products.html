@@ -151,28 +151,28 @@
             </div>
             <div class="product">
               <div class="product__image">
-                <div class="product__picture" style="background: url(static/img/product-1.png) center no-repeat;"></div>
+                <div class="product__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
               </div>
               <p class="product__title">Ruffled dress</p>
               <p class="product__feature">Pink</p>
             </div>
             <div class="product">
               <div class="product__image">
-                <div class="product__picture" style="background: url(static/img/product-2.png) 60% 65% no-repeat;"></div>
+                <div class="product__picture" style="background: url(static/img/product-4.png) 60% 65% no-repeat;"></div>
               </div>
               <p class="product__title">Oversized Sweatshirt In</p>
               <p class="product__feature">Pink</p>
             </div>
             <div class="product">
               <div class="product__image">
-                <div class="product__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
+                <div class="product__picture" style="background: url(static/img/product-1.png) center no-repeat;"></div>
               </div>
               <p class="product__title">Slim-fit medium wash</p>
               <p class="product__feature">Tim jeans</p>
             </div>
             <div class="product">
               <div class="product__image">
-                <div class="product__picture" style="background: url(static/img/product-4.png) center 65% no-repeat;"></div>
+                <div class="product__picture" style="background: url(static/img/product-2.png) center 65% no-repeat;"></div>
               </div>
               <p class="product__title">Sleeveless T-Shirt With</p>
               <p class="product__feature">Dropped Armhole</p>
@@ -183,6 +183,7 @@
             <div class="products__pag"><a class="products__pag--number">02</a></div>
             <div class="products__pag"><a class="products__pag--number">03</a></div>
           </div>
+          <div class="products__more">Загрузить еще</div>
         </div>
       </div>
     </section>
@@ -191,7 +192,7 @@
         <div class="merchandise__close"></div>
         <div class="merchandise__container container">
           <div class="merchandise__image-block">
-            <div class="merchandise__slider">
+            <div class="merchandise__slider merchandise--sale">
               <div class="merchandise__image">
                 <div class="merchandise__picture" style="background: url(static/img/product-3.png) center no-repeat;"></div>
               </div>
@@ -242,10 +243,10 @@
         <div class="feedback__container container">
           <h1 class="feedback__title">Напишите Нам</h1>
           <form class="feedback__form">
-            <input class="feedback__input feedback__name" type="text" placeholder="Имя" name="feedback-name">
-            <input class="feedback__input feedback__phone" type="text" placeholder="Номер Телефона" name="feedback-phone">
-            <input class="feedback__input feedback__mail" type="text" placeholder="E-mail" name="feedback-mail">
-            <textarea class="feedback__textarea" type="textarea" placeholder="Сообщение" name="feedback-message"></textarea>
+            <input class="feedback__input feedback__name" type="text" placeholder="Имя" pattern="[a-zA-Z]+" name="feedback-name" required>
+            <input class="feedback__input feedback__phone" type="text" placeholder="Номер Телефона" name="feedback-phone" required>
+            <input class="feedback__input feedback__mail" type="email" placeholder="E-mail" name="feedback-mail" required>
+            <textarea class="feedback__textarea" type="textarea" placeholder="Сообщение" name="feedback-message" required></textarea>
             <div class="feedback__agreement">
               <input type="checkbox" id="agreement" required>
               <label for="agreement">Согласен с правилами обработки информации </label>
@@ -271,6 +272,7 @@
       </div>
     </footer>
     <script src="static/js/jquery.js"></script>
+    <script src="static/js/jquery.maskedinput.js"></script>
     <script src="static/js/slick.js"></script>
     <script src="static/js/main.js"></script>
   </body>

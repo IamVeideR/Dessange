@@ -773,6 +773,9 @@
         display: flex;
         flex-direction: column;
     }
+    &__more {
+        display: none;
+    }
     &__active {
         display: flex;
         color: white;
@@ -949,6 +952,9 @@
                 height: 100%;
                 padding: 12vh 8% 10vh;
             }
+            &__slider {
+                position: relative;
+            }
             &__image-block {
                 width: 46%;
                 display: flex;
@@ -1058,6 +1064,34 @@
                 height: 49px;
                 line-height: 49px;
                 width: 205px;
+            }
+            &--action {
+                &::before {
+                    content: 'акция';
+                    position: absolute;
+                    right: 12px;
+                    top: 12px;
+                    font-size: 10px;
+                    padding: 6px;
+                    background-color: #ff639a;
+                    text-transform: uppercase;
+                    color: white;
+                    z-index: 2;
+                }
+            }
+            &--sale {
+                &::before {
+                    content: 'скидка';
+                    position: absolute;
+                    right: 12px;
+                    top: 12px;
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    padding: 6px;
+                    color: white;
+                    background-color: $black;
+                    z-index: 3;
+                }
             }
         }
     }
@@ -2221,6 +2255,7 @@
             padding-top: 12px;
             margin-bottom: 12px;
             position: relative;
+            transition-duration: 0.3s;
 
             &:before {
                 content: '';
@@ -2232,6 +2267,24 @@
                 border-top: 5px solid transparent;
                 border-bottom: 5px solid transparent;
                 border-left: 5px solid $black;
+                transition-duration: 0.3s;
+            }
+            &--opened {
+                &::before {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+        &__pagination {
+            display: none!important;
+        }
+        &__more {
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                color: $dark-gray;
             }
         }
         &__variation {
@@ -2287,6 +2340,9 @@
                     margin: 25px auto 10px;
                     width: 85%;
                 }
+                &__title {
+                    padding-top: 25px;
+                }
                 &__nav {
                     width: 80%;
                     padding-bottom: 65px; 
@@ -2309,14 +2365,19 @@
         &__feedback {    
             .feedback {
                 height: 95vh;
-                max-height: 630px;
+                box-sizing: border-box;
+                max-height: none;
+                padding: 15px 0;
                 width: 90%;
+
+                &__container {
+                    overflow: scroll;
+                    height: 100%;
+                    padding: 40px 15px 25px;
+                }
 
                 &__title {
                     padding-bottom: 40px;
-                }
-                &__container {
-                    padding: 60px 15px 0;
                 } 
                 &__phone {
                     width: 100%;
@@ -2620,23 +2681,6 @@
         }
         &__back {
             font-size: 11px;
-        }
-    }
-}
-@media (max-width: $mobileXs) {
-    .products {
-        &__feedback {   
-            .feedback {
-                &__title {
-                    padding-bottom: 20px;
-                }
-                &__container {
-                    padding: 35px 15px 0;
-                }       
-                &__agreement {
-                    margin: 20px auto 20px;
-                }
-            } 
         }
     }
 }

@@ -249,7 +249,9 @@ if(currentPage =='portfolio-page') {
         }
     }
 }
-
+$(function(){
+    $(".feedback__phone").mask("+9999999999?9");
+  });
 if(currentPage =='products-page') {
     let dropdown = document.getElementsByClassName('products__type--title');
     let merchandise = document.getElementsByClassName('products__merchandise');
@@ -263,10 +265,29 @@ if(currentPage =='products-page') {
     let feedbackButton = document.getElementsByClassName('feedback__button')[0];
     let active = document.getElementsByClassName('active__block');
     let activeClose = document.getElementsByClassName('active__close');
+    let more = document.getElementsByClassName('products__more')[0];
+    let slide = document.getElementsByClassName('products__list')[0].getElementsByClassName('product');
 
-    for (let i = 0; i < active.length; i++) {
-        activeClose[i].onclick = () => {
-            active[i].style.display = 'none';
+
+    if(window.screen.width < 765) {
+        slide[0].style.display = 'block';
+        for (let i = 0; i < 4; i++) {
+            slide[i].style.display = 'block';
+    }
+        for (let i = 4; i <slide.length; i++) {
+            slide[i].style.display = 'none';
+        }
+    }
+    more.onclick = () => {
+        for (let i = slide.length-1; i > 3; i--) {
+            if ((slide[i].style.display == 'none') && (slide[i-4].style.display == 'block')) {
+                for (let j = i; j > i-4; j--) {
+                    slide[j].style.display = 'block';
+                }
+            }
+            if(slide[slide.length-1].style.display == 'block') {
+                more.style.display = 'none';
+            }
         }
     }
     for (let i = 0; i < product.length; i++) {
@@ -296,6 +317,28 @@ if(currentPage =='products-page') {
             feedback.style.height = '0';
         }
     }
+    for (let i = 0; i < dropdown.length; i++) {
+        let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
+        let variation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__variation');
+        for (let j = 0; j < subvariation.length; j++) {
+            subvariation[j].onclick = () => {
+                if(subvariation[j].classList.contains('products__subvariation--active')) {
+                    subvariation[j].classList.remove('products__subvariation--active'); 
+                } else {
+                    subvariation[j].classList.add('products__subvariation--active'); 
+                }  
+            }        
+        } 
+        for (let j = 0; j < variation.length; j++) {
+            variation[j].onclick = () => {
+                if(variation[j].classList.contains('products__variation--active')) {
+                    variation[j].classList.remove('products__variation--active'); 
+                } else {
+                    variation[j].classList.add('products__variation--active'); 
+                }  
+            }        
+        } 
+    }
     if(window.screen.width < 765){
         for (let i = 0; i < dropdown.length; i++) {
             let subvariation = document.getElementsByClassName('products__type')[i].getElementsByClassName('products__subvariation');
@@ -306,12 +349,14 @@ if(currentPage =='products-page') {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = '0';
                         subvariation[j].style.display = 'none';
+                        document.getElementsByClassName('products__type')[i].classList.remove('products__type--opened');
                         
                     }
                 } else {
                     for (let j = 0; j < subvariation.length; j++) {
                         subvariation[j].style.height = 'initial';
                         subvariation[j].style.display = 'block';
+                        document.getElementsByClassName('products__type')[i].classList.add('products__type--opened');
                     }
                 }
                 if(event.target == dropdown[0]) {
@@ -319,7 +364,6 @@ if(currentPage =='products-page') {
                         for (let j = 0; j < variation.length; j++) {
                             variation[j].style.height = '0';
                             variation[j].style.display = 'none';
-                            
                         }
                     } else {
                         for (let j = 0; j < variation.length; j++) {
@@ -508,6 +552,3 @@ if(currentPage =='main-page') {
     changeScale();
 }
 })();
-
-
-
