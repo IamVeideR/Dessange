@@ -278,6 +278,11 @@ if(currentPage =='products-page') {
             slide[i].style.display = 'none';
         }
     }
+    for (let i = 0; i < active.length; i++) {
+        activeClose[i].onclick = ()=> {
+            active[i].style.display = 'none';
+        }
+    }
     more.onclick = () => {
         for (let i = slide.length-1; i > 3; i--) {
             if ((slide[i].style.display == 'none') && (slide[i-4].style.display == 'block')) {
@@ -293,15 +298,18 @@ if(currentPage =='products-page') {
     for (let i = 0; i < product.length; i++) {
         product[i].onclick = () => {
             merchandise[0].style.height = '100vh';
+            document.body.classList.add('body--static');
         }
         merchClose[0].onclick = () => {
             merchandise[0].style.height = '0'; 
+            document.body.classList.remove('body--static');
         }
         merchContainer[0].onclick = (e) => {
             e.stopPropagation();
         }
         merchandise[0].onclick = () => {
             merchandise[0].style.height = '0';
+            document.body.classList.remove('body--static');
         }
         merchButton[0].onclick = () => {
             merchandise[0].style.height = '0'; 
@@ -309,12 +317,14 @@ if(currentPage =='products-page') {
         }
         feedbackClose.onclick = () => {
             feedback.style.height = '0'; 
+            document.body.classList.remove('body--static');
         }
         feedbackContainer.onclick = (e) => {
             e.stopPropagation();
         }
         feedback.onclick = () => {
             feedback.style.height = '0';
+            document.body.classList.remove('body--static');
         }
     }
     for (let i = 0; i < dropdown.length; i++) {
@@ -388,21 +398,18 @@ if(currentPage =='services-page') {
     let foremanButton = document.getElementsByClassName('foreman__button');
     let master = document.getElementsByClassName('master');
     let dropdown = document.getElementsByClassName('services__dropdown')[0];
+    let dropdownContainer = document.getElementsByClassName('services__category-drop')[0];
     let category = document.getElementsByClassName('services__category-title');
     let more = document.getElementsByClassName('masters__more')[0];
     let slide = document.getElementsByClassName('masters__list')[0].getElementsByClassName('masters__slide');
 
     dropdown.onclick = () => {
-        if(category[0].style.display == 'block') {
+        if(dropdownContainer.style.height == category.length*47+'px') {
             dropdown.classList.remove('services__dropdown--active');
-            for (let i = 0; i < category.length; i++) {
-                category[i].style.display = 'none';
-            } 
+            dropdownContainer.style.height = '0';
         } else {
             dropdown.classList.add('services__dropdown--active');
-            for (let i = 0; i < category.length; i++) {
-                category[i].style.display = 'block';
-            } 
+            dropdownContainer.style.height = category.length*47+'px';
         }
     }
     if(window.screen.width < 765) {
@@ -431,9 +438,7 @@ if(currentPage =='services-page') {
             if(window.screen.width < 765) {
                 category[i].classList.remove('services__category-title--active');
                 dropdown.classList.remove('services__dropdown--active');
-                for (let j = 0; j < category.length; j++) {
-                    category[j].style.display = 'none';
-                }
+                dropdownContainer.style.height = '0';
             }
         }
     }
@@ -475,80 +480,86 @@ if(currentPage =='services-page') {
     for (let i = 0; i < master.length; i++) {
         master[i].onclick = () => {
             foreman[0].style.height = '100vh';
+            document.body.classList.add('body--static');
         }
         foremanClose[0].onclick = () => {
             foreman[0].style.height = '0'; 
+            document.body.classList.remove('body--static');
         }
         foremanContainer[0].onclick = (e) => {
             e.stopPropagation();
         }
         foreman[0].onclick = () => {
             foreman[0].style.height = '0';
+            document.body.classList.remove('body--static');
         }
         foremanButton[0].onclick = () => {
             foreman[0].style.height = '0'; 
+            document.body.classList.remove('body--static');
         }
     }
 }
 }
-class ClassWatcher {
-    constructor(targetNode, classToWatch, classAddedCallback) {
-        this.targetNode = targetNode
-        this.classToWatch = classToWatch
-        this.classAddedCallback = classAddedCallback
-        this.observer = null
-        this.lastClassState = targetNode.classList.contains(this.classToWatch)
-        this.init()
-    }
-    init() {
-        this.observer = new MutationObserver(this.mutationCallback)
-        this.observe()
-    }
-    observe() {
-        this.observer.observe(this.targetNode, { attributes: true })
-    }
-    disconnect() {
-        this.observer.disconnect()
-    }
-    mutationCallback = mutationsList => {
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                let currentClassState = mutation.target.classList.contains(this.classToWatch)
-                if(this.lastClassState !== currentClassState) {
-                    this.lastClassState = currentClassState
-                    if(currentClassState) {
-                        this.classAddedCallback()
+    if(window.screen.width > 765) {
+    class ClassWatcher {
+        constructor(targetNode, classToWatch, classAddedCallback) {
+            this.targetNode = targetNode
+            this.classToWatch = classToWatch
+            this.classAddedCallback = classAddedCallback
+            this.observer = null
+            this.lastClassState = targetNode.classList.contains(this.classToWatch)
+            this.init()
+        }
+        init() {
+            this.observer = new MutationObserver(this.mutationCallback)
+            this.observe()
+        }
+        observe() {
+            this.observer.observe(this.targetNode, { attributes: true })
+        }
+        disconnect() {
+            this.observer.disconnect()
+        }
+        mutationCallback = mutationsList => {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    let currentClassState = mutation.target.classList.contains(this.classToWatch)
+                    if(this.lastClassState !== currentClassState) {
+                        this.lastClassState = currentClassState
+                        if(currentClassState) {
+                            this.classAddedCallback()
+                        }
                     }
                 }
             }
         }
     }
-}
-if(currentPage =='main-page') {
-    const changeScale = () => {
-        let current = document.getElementsByClassName('slider__current')[0];
-        let all = document.getElementsByClassName('slider__all')[0];
-        let scale = document.getElementsByClassName('slider__scale--before')[0];
-        let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
-        
-        if(image.length >= 10) {
-            all.innerHTML = image.length;
-        } else {
-            all.innerHTML = "0"+image.length;  
-        }    
-        scale.style.width = `${Math.ceil(100/image.length)}%`;
-        for(let i = 0; i<image.length; i++) {
-            function workOnClassAdd() {
-                if(i >= 9) {
-                    current.innerHTML = i+1;
-                } else {
-                    current.innerHTML = `0${i+1}`;  
-                } 
-                scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
+    if(currentPage =='main-page') {
+        const changeScale = () => {
+            let current = document.getElementsByClassName('slider__current')[0];
+            let all = document.getElementsByClassName('slider__all')[0];
+            let scale = document.getElementsByClassName('slider__scale--before')[0];
+            let image = document.getElementsByClassName('slider__slides')[0].getElementsByClassName('slick-slide');
+            
+            if(image.length >= 10) {
+                all.innerHTML = image.length;
+            } else {
+                all.innerHTML = "0"+image.length;  
+            }    
+            scale.style.width = `${Math.ceil(100/image.length)}%`;
+            for(let i = 0; i<image.length; i++) {
+                function workOnClassAdd() {
+                    if(i >= 9) {
+                        current.innerHTML = i+1;
+                    } else {
+                        current.innerHTML = `0${i+1}`;  
+                    } 
+                    scale.style.width = `${Math.ceil(100/image.length*(i+1))}%`;
+                }
+                let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
             }
-            let classWatcher = new ClassWatcher(image[i], 'slick-active', workOnClassAdd)
-        }
-    };
-    changeScale();
-}
+        };
+        changeScale();
+    }
+    }
 })();

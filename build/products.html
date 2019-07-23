@@ -243,8 +243,8 @@
         <div class="feedback__container container">
           <h1 class="feedback__title">Напишите Нам</h1>
           <form class="feedback__form">
-            <input class="feedback__input feedback__name" type="text" placeholder="Имя" pattern="[a-zA-Z]+" name="feedback-name" required>
-            <input class="feedback__input feedback__phone" type="text" placeholder="Номер Телефона" name="feedback-phone" required>
+            <input class="feedback__input feedback__name" type="text" placeholder="Имя" pattern="[a-zA-Zа-яА-Я]+" name="feedback-name" required>
+            <input class="feedback__input feedback__phone" type="text" placeholder="Номер Телефона" name="feedback-phone" pattern="[0-9]+" required>
             <input class="feedback__input feedback__mail" type="email" placeholder="E-mail" name="feedback-mail" required>
             <textarea class="feedback__textarea" type="textarea" placeholder="Сообщение" name="feedback-message" required></textarea>
             <div class="feedback__agreement">
@@ -256,7 +256,7 @@
         </div>
       </div>
     </div>
-    <div class="up-button base-button black">Наверх</div>
+    <div class="up-button"></div>
     <footer class="footer">
       <div class="footer__container container"><a class="footer__logo" href="index.html"></a>
         <div class="footer__address">г. Астана, ул. Достык, 9, ТРЦ “Керуен”, 1 этаж, бутик 22</div>

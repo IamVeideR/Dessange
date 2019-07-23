@@ -71,6 +71,13 @@ body {
   font-family: 'HelveticaNeue';
   font-size: 14px; }
 
+.body--static {
+  overflow: hidden; }
+
+body * {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none; }
+
 a {
   color: inherit; }
 
@@ -414,9 +421,16 @@ h1 {
   right: 15px;
   bottom: 2vh;
   z-index: 8;
-  width: 100px;
-  height: 29px;
-  line-height: 30px; }
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 30px;
+          border-radius: 30px;
+  -webkit-box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+  background: url(./../img/left-arrow.png) center no-repeat, white;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
 
 @media (max-width: 765px) {
   .footer__container {
@@ -551,7 +565,8 @@ h1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  height: 15px; }
 
 .about {
   padding: 80px 0; }
@@ -645,13 +660,21 @@ h1 {
         width: 100%;
         height: 0;
         padding-bottom: 116%;
-        background-color: #f4f4f4; }
+        background-color: #f4f4f4;
+        overflow: hidden; }
       .products-main__slide .product__picture {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        -webkit-transition-duration: 0.3s;
+             -o-transition-duration: 0.3s;
+                transition-duration: 0.3s; }
+        .products-main__slide .product__picture:hover {
+          -webkit-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+                  transform: scale(1.1); }
       .products-main__slide .product__title {
         padding-top: 20px; }
       .products-main__slide .product__feature {
@@ -1086,7 +1109,7 @@ h1 {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    max-width: 980px; }
+    max-width: 1040px; }
   .portfolio__text {
     padding-top: 15px;
     padding-bottom: 35px; }
@@ -1100,7 +1123,7 @@ h1 {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around;
-    padding-bottom: 15px; }
+    padding-bottom: 0px; }
   .portfolio__category-title {
     font-size: 10px;
     letter-spacing: 2px;
@@ -1124,7 +1147,7 @@ h1 {
     width: 100%; }
   .portfolio__block {
     width: 100%;
-    padding: 20px;
+    padding: 40px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     display: -webkit-box;
@@ -1147,9 +1170,11 @@ h1 {
          -o-transition-duration: 0.3s;
             transition-duration: 0.3s; }
     .portfolio__image:hover {
-      -webkit-transform: scale(1.15);
-          -ms-transform: scale(1.15);
-              transform: scale(1.15);
+      -webkit-box-shadow: 0 0 32px rgba(0, 0, 0, 0.6);
+              box-shadow: 0 0 32px rgba(0, 0, 0, 0.6);
+      -webkit-transform: scale(1.12);
+          -ms-transform: scale(1.12);
+              transform: scale(1.12);
       z-index: 5; }
   .portfolio__picture {
     position: absolute;
@@ -1460,6 +1485,16 @@ h1 {
       max-height: 800px;
       position: relative;
       background-color: white; }
+      .products__merchandise .merchandise ::-webkit-scrollbar {
+        width: 4px; }
+      .products__merchandise .merchandise ::-webkit-scrollbar-thumb {
+        width: 4px;
+        -webkit-border-radius: 2px;
+                border-radius: 2px;
+        margin-left: 2px;
+        background-color: #b9b9b9; }
+      .products__merchandise .merchandise ::-webkit-scrollbar-thumb:hover {
+        background-color: #797979; }
       .products__merchandise .merchandise__close {
         position: absolute;
         top: 20px;
@@ -1486,7 +1521,8 @@ h1 {
                 justify-content: space-between;
         width: 100%;
         height: 100%;
-        padding: 12vh 8% 10vh; }
+        padding: 12vh 8% 10vh;
+        overflow: scroll; }
       .products__merchandise .merchandise__slider {
         position: relative; }
       .products__merchandise .merchandise__image-block {
@@ -1955,6 +1991,8 @@ h1 {
     letter-spacing: 3px;
     color: #252525;
     text-transform: uppercase; }
+    .services__title--mobile {
+      display: none; }
   .services__text {
     line-height: 20px;
     width: 80%;
@@ -2123,7 +2161,8 @@ h1 {
           width: 100%;
           height: 0;
           padding-bottom: 116%;
-          background-color: #f4f4f4; }
+          background-color: #f4f4f4;
+          overflow: hidden; }
         .services__masters .masters__slide .master__picture {
           position: absolute;
           top: 0;
@@ -3005,6 +3044,8 @@ h1 {
       z-index: 5;
       top: 47px;
       width: 100%;
+      height: 0;
+      overflow: hidden;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
@@ -3013,9 +3054,11 @@ h1 {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center; }
+              align-items: center;
+      -webkit-transition-duration: 0.4s;
+           -o-transition-duration: 0.4s;
+              transition-duration: 0.4s; }
     .services__category-title {
-      display: none;
       text-align: center; }
       .services__category-title--active {
         border-bottom: 1px solid #f5dad7; }
@@ -3027,7 +3070,7 @@ h1 {
     .services__frontground {
       width: 45%;
       height: 120px;
-      top: 0px;
+      top: 50px;
       left: 5%; }
     .services__category {
       padding: 50px 0 60px;
@@ -3047,10 +3090,17 @@ h1 {
       padding-top: 35px;
       padding-bottom: 0px;
       text-align: center; }
+      .services__title--mobile {
+        display: block;
+        padding-top: 0px;
+        padding-bottom: 35px;
+        z-index: 5; }
+      .services__title--desktop {
+        display: none; }
     .services__text {
       text-align: center;
       width: 100%;
-      padding-top: 25px;
+      padding-top: 35px;
       padding-bottom: 15px; }
     .services__details {
       padding-top: 25px;

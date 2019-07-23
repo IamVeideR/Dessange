@@ -148,8 +148,8 @@ block content
             .feedback__container.container
                 h1.feedback__title Напишите Нам
                 form.feedback__form
-                    input(type='text' placeholder='Имя' pattern="[a-zA-Z]+" name="feedback-name" required).feedback__input.feedback__name
-                    input(type='text' placeholder='Номер Телефона' name="feedback-phone" required).feedback__input.feedback__phone
+                    input(type='text' placeholder='Имя' pattern="[a-zA-Zа-яА-Я]+" name="feedback-name" required).feedback__input.feedback__name
+                    input(type='text' placeholder='Номер Телефона' name="feedback-phone" pattern="[0-9]+" required).feedback__input.feedback__phone
                     input(type="email" placeholder='E-mail' name="feedback-mail" required).feedback__input.feedback__mail
                     textarea(type='textarea' placeholder='Сообщение' name="feedback-message" required).feedback__textarea
                     .feedback__agreement
